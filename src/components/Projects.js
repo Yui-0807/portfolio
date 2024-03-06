@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
+import SingleProjectPage from "./SingleProjectPage"
 
-const Projects = ({ restBase,featuredImage }) => {
+const Projects = ({ restBase }) => {
 
 
     const restPathPost = restBase + 'posts?_embed'
@@ -31,17 +32,17 @@ const Projects = ({ restBase,featuredImage }) => {
                 <section key={post.id}>
                     <h2>{post.title.rendered}</h2>
                     
-                        {/* {post._embedded['wp:featuredmedia'][0]} */}
-                        {post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && (
-                            <img
-                                src={post._embedded['wp:featuredmedia'][0].source_url}
-                                alt={post.title.rendered}
-                                
-                            />
-                        )}
+                    {post.featured_media && post._embedded['wp:featuredmedia'][0] && (
+                        <img
+                            src={post._embedded['wp:featuredmedia'][0].source_url}
+                            alt={post.title.rendered}
+                            className="featured-image"
+                        />
+                    )}
                     <div className='read-more-button' onClick={() => {
                         navigate(`/projects/${post.slug}`)
                     }}>Read More</div>
+                    
                 </section>
             ))}
         </section>
