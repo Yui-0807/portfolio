@@ -4,7 +4,7 @@ import Projects from "./Projects"
 
 const HomePage = ({ restBase }) => {
 
-    const restPathPage = restBase + 'pages'
+    const restPathPage = restBase + 'pages/'
     const [restDataPage, setDataPage] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
@@ -31,6 +31,7 @@ const HomePage = ({ restBase }) => {
                 <div key={page.id} className="entry-content" dangerouslySetInnerHTML={{ __html: page.content.rendered }}>
                 </div>
             ))}
+            <h2 id="projects">Projects</h2>
             <Projects restBase={restBase}/>
             <About />
         </>
