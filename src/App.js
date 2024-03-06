@@ -32,11 +32,9 @@ function App() {
       <Header />
       <main>
         <Router>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/">About</NavLink>
           <Routes>
             <Route path="/" element={<HomePage restBase={restBase} />} />
-            <Route path="/projects" element={<Projects restBase={restBase} featuredImage={featuredImage} />} />
+            <Route path="/projects" element={<Projects restBase={restBase} />} />
             <Route path="/projects/:slug" element={<SingleProjectPage restBase={restBase}  />} />
           </Routes>
         </Router>
