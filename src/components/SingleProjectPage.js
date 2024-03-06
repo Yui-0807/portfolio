@@ -1,31 +1,36 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router"
+import { useNavigate, useParams } from "react-router"
 
 const SingleProjectPage = ({ restBase }) => {
+    const { slug } = useParams()
+    
 
-    // const restPath = restBase + 'pages/30/'
+    const restPath = restBase + `posts?slug=${slug}&_embed`
    
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const response = await fetch(restPath)
-    //         if (response.ok) {
-    //             const data = await response.json()
-    //             setData(data)
-    //             setLoadStatus(true)
-    //         } else {
-    //             setLoadStatus(false)
-    //         }
-    //     }
-    //     fetchData()
-    // }, [restPath])
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(restPath)
+            if (response.ok) {
+                const data = await response.json()
+                setData(data)
+                setLoadStatus(true)
+            } else {
+                setLoadStatus(false)
+            }
+        }
+        fetchData()
+    }, [restPath])
 
     return (
         <>
             
-            <h1>SingleProjectPage</h1>
+            {restData.map(project => (
+               
+                <h1>{project.title.rendered}</h1>
+            ))}
         </>
     )
 }
