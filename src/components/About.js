@@ -1,11 +1,9 @@
 const About = () => {
     return (
-        <>
-            <article id> 
-                <h2>About Title</h2>
-                <p>About content</p>
-            </article>
-        </>
+        <article id='about'>
+            <h2>About Title</h2>
+            <p>About content</p>
+        </article>
     )
 }
 
