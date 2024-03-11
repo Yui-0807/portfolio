@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './styles/styles.css';
 import { BrowserRouter as Router, Routes, Route, NavLink, Link, BrowserRouter } from 'react-router-dom';
 import HomePage from './components/HomePage.js';
 import SingleProjectPage from './components/SingleProjectPage.js';
@@ -30,17 +30,13 @@ function App() {
 
   return (
     <BrowserRouter>
-    <ScrollToHashElement />
       <Header />
-
       <main>
-        {/* <Router> */}
           <Routes>
             <Route path="/" element={<HomePage restBase={restBase} />} />
             <Route path="/projects" element={<Projects restBase={restBase} />} />
             <Route path="/projects/:id" element={<SingleProjectPage restBase={restBase} />} />
           </Routes>
-        {/* </Router> */}
       </main>
 
     </BrowserRouter>
