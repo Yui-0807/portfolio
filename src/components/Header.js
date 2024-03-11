@@ -1,21 +1,18 @@
-import { Link, NavLink } from "react-router-dom";
+
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
-    const scrollToSection = (id) => {
-        const article = document.getElementById(id)
-        if (article) {
-            article.scrollIntoView({ behavior: "smooth" })
-        }
-    }
+
     return (
-        
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li onClick={() => scrollToSection('about')}>About</li>
-                <li onClick={() => scrollToSection('projects')}>Projects</li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <ul>
+                    <li><HashLink to="/#">Home</HashLink></li>
+                    <li><HashLink to="/#about" scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>About</HashLink></li>
+                    <li><HashLink to="/#projects" scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'end' })}>Projects</HashLink></li>
+                </ul>
+            </nav>
+        </header>
     )
 }
 

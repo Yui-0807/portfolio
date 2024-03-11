@@ -5,14 +5,14 @@ import SingleProjectPage from "./SingleProjectPage"
 const Projects = ({ restBase }) => {
 
 
-    const restPathPost = restBase + 'posts?_embed'
+    const restPathPosts = restBase + 'posts?_embed'
     const navigate = useNavigate()
     const [restDataPost, setDataPost] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(restPathPost)
+            const response = await fetch(restPathPosts)
             if (response.ok) {
                 const data = await response.json()
                 setDataPost(data)
@@ -22,12 +22,12 @@ const Projects = ({ restBase }) => {
             }
         }
         fetchData()
-    }, [restPathPost])
+    }, [restPathPosts])
 
     return (
 
-        <section>
-
+        <div className="projects">
+            <h2 id="projects">Projects</h2>
             {restDataPost.map(post => (
                 <section key={post.id}>
                     <h2>{post.title.rendered}</h2>
@@ -40,12 +40,11 @@ const Projects = ({ restBase }) => {
                         />
                     )}
                     <div className='read-more-button' onClick={() => {
-                        navigate(`/projects/${post.slug}`)
-                    }}>Read More</div>
-                    
+                        navigate(`/projects/${post.id}`)
+                    }}>Read More</div>         
                 </section>
             ))}
-        </section>
+        </div>
 
     )
 }
