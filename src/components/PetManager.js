@@ -5,7 +5,7 @@ import PetPopup from './PetPopup';
 const PetManager = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [dogHunger, setDogHunger] = useState(10); 
-  const [dogHappiness, setDogHappiness] = useState(50);
+  const [dogHappiness, setDogHappiness] = useState(10);
   const [isActive, setIsActive] = useState(true); // Whether the user is active on the site
 
   useEffect(() => {
@@ -58,10 +58,16 @@ const PetManager = () => {
 
   return (
     <div>
-      {/* Render the PetButton component */}
+      
       <PetButton onClick={handleButtonClick} showBadge={showBadge} />
-     
-      {showPopup && <PetPopup onClose={handleClosePopup} onFeed={feedDog} onPet={petDog} hunger={dogHunger} happiness={dogHappiness}/>}
+      <PetPopup
+        show={showPopup}
+        onClose={handleClosePopup}
+        onFeed={feedDog}
+        onPet={petDog}
+        hunger={dogHunger}
+        happiness={dogHappiness}
+      />
     </div>
   );
 };

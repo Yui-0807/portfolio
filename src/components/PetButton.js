@@ -1,12 +1,15 @@
-// PetButton.js
 import React from 'react';
+import Badge from '@mui/material/Badge';
+import PetsIcon from '@mui/icons-material/Pets';
 
 const PetButton = ({ onClick, showBadge }) => {
   return (
-    <button className={showBadge ? "pet-button has-badge" : "pet-button"} onClick={onClick}>
-      Pet
-      {showBadge && <div className="badge">!</div>}
-    </button>
+    <>
+    <Badge color="error" variant={showBadge ? "dot" : "standard"} onClick={onClick}>
+      <PetsIcon />
+    </Badge>
+    <span>Pet</span>
+    </>
   );
 };
 

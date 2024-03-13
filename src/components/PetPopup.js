@@ -1,19 +1,22 @@
-// PetPopup.js
 import React from 'react';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
-const PetPopup = ({ onClose, onFeed, onPet,hunger,happiness }) => {
+
+const PetPopup = ({ show, onClose, onFeed, onPet, hunger, happiness }) => {
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        
+    <Offcanvas show={show} onHide={onClose} placement='end'>
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title>What do you like to do?</Offcanvas.Title>
+
+      </Offcanvas.Header>
+      <Offcanvas.Body>
         <p>Hunger: {hunger}</p>
         <p>Happiness: {happiness}</p>
-        <p>What would you like to do?</p>
+        
         <button onClick={onFeed}>Feed</button>
         <button onClick={onPet}>Pet</button>
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>
+      </Offcanvas.Body>
+    </Offcanvas>
   );
 };
 
