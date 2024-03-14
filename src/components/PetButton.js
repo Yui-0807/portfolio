@@ -8,7 +8,6 @@ const PetButton = ({ onClick, showBadge }) => {
     <Badge color="error" variant={showBadge ? "dot" : "standard"} onClick={onClick}>
       <PetsIcon />
     </Badge>
-    <span>Pet</span>
     </>
   );
 };

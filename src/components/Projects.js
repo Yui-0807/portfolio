@@ -29,8 +29,10 @@ const Projects = ({ restBase }) => {
         <div className="projects">
             <h2 id="projects">Projects</h2>
             {restDataPost.map(post => (
-                <section key={post.id}>
-                    <h2>{post.title.rendered}</h2>
+                <section key={post.id} className="project" onClick={() => {
+                    navigate(`/projects/${post.id}`)
+                }}>
+                    <h3 className="project-title">{post.title.rendered}</h3>
                     
                     {post.featured_media && post._embedded['wp:featuredmedia'][0] && (
                         <img

@@ -1,12 +1,12 @@
 import logo from './logo.svg';
-import './styles/styles.css';
 import { BrowserRouter as Router, Routes, Route, NavLink, Link, BrowserRouter } from 'react-router-dom';
 import HomePage from './components/HomePage.js';
 import SingleProjectPage from './components/SingleProjectPage.js';
 import Header from './components/Header';
 import About from './components/About';
 import Projects from './components/Projects';
-import ScrollToHashElement from './components/ScrollToHashElement';
+import Footer from './components/Footer';
+
 
 function App() {
 
@@ -30,15 +30,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
-      <main>
+      <main className='container'>
+        <Header />
+        <section className='main-content'>
           <Routes>
             <Route path="/" element={<HomePage restBase={restBase} />} />
             <Route path="/projects" element={<Projects restBase={restBase} />} />
             <Route path="/projects/:id" element={<SingleProjectPage restBase={restBase} />} />
           </Routes>
+        </section>
+        <Footer />
       </main>
-
     </BrowserRouter>
 
   )

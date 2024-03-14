@@ -26,14 +26,17 @@ const HomePage = ({ restBase }) => {
 
     return (
         <>
-            <h1>Home page</h1>
+            <section className="home-banner">
             {restDataPage.map(item => (
-                <div key={item.id} className="entry-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }}>
-                </div>
+                <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
+                </h1>
             ))}
-                {/* <div key={restDataPage.id} className="entry-content" dangerouslySetInnerHTML={{ __html: restDataPage.content.rendered }}>
-                </div> */}
-          
+            {restDataPage.map(item => (
+                <p key={item.id} className="entry-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }}>
+                </p>
+            ))}
+            </section>
+              
             
             <Projects restBase={restBase}/>
             <About restBase={restBase} restDataPage={restDataPage} />
