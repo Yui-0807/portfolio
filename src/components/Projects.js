@@ -32,8 +32,7 @@ const Projects = ({ restBase }) => {
                 <section key={post.id} className="project" onClick={() => {
                     navigate(`/projects/${post.id}`)
                 }}>
-                    <h3 className="project-title">{post.title.rendered}</h3>
-                    
+
                     {post.featured_media && post._embedded['wp:featuredmedia'][0] && (
                         <img
                             src={post._embedded['wp:featuredmedia'][0].source_url}
@@ -41,9 +40,10 @@ const Projects = ({ restBase }) => {
                             className="featured-image"
                         />
                     )}
+                    <h3 className="project-title">{post.title.rendered}</h3>
                     <div className='read-more-button' onClick={() => {
                         navigate(`/projects/${post.id}`)
-                    }}>Read More</div>         
+                    }}>Read More</div>
                 </section>
             ))}
         </div>

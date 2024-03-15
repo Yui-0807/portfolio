@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
+import scrollDownGif from "../styles/scroll-down.gif"; 
 
 const HomePage = ({ restBase }) => {
 
@@ -22,23 +23,24 @@ const HomePage = ({ restBase }) => {
         fetchData()
     }, [restPathPage])
 
-    
+
 
     return (
         <>
             <section className="home-banner">
-            {restDataPage.map(item => (
-                <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
-                </h1>
-            ))}
-            {restDataPage.map(item => (
-                <p key={item.id} className="entry-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }}>
-                </p>
-            ))}
+                {restDataPage.map(item => (
+                    <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
+                    </h1>
+                ))}
+                {restDataPage.map(item => (
+                    <p key={item.id} className="entry-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }}>
+                    </p>
+                ))}
+                <img src={scrollDownGif} alt="scroll-down" className="scroll-down"/>
             </section>
-              
-            
-            <Projects restBase={restBase}/>
+
+
+            <Projects restBase={restBase} />
             <About restBase={restBase} restDataPage={restDataPage} />
         </>
     )
