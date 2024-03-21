@@ -32,7 +32,7 @@ const Projects = ({ restBase }) => {
                 <section key={post.id} className="project" onClick={() => {
                     navigate(`/projects/${post.id}`)
                 }}>
-
+                    
                     {post.featured_media && post._embedded['wp:featuredmedia'][0] && (
                         <img
                             src={post._embedded['wp:featuredmedia'][0].source_url}

@@ -10,10 +10,10 @@ const Header = () => {
         <header className='header'>
             <nav className='header-nav'>
                 <ul>
-                    <li><HashLink to="/#"><HomeIcon />Home</HashLink></li>
-                    <li><HashLink to="/#about" scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}><AboutIcon />About</HashLink></li>
-                    <li><HashLink to="/#projects" scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}><ProjectIcon />Projects</HashLink></li>
-                    <li><div className='nav-pet-btn'><PetManager /><span>Pet</span></div></li>
+                    <li><HashLink to="/#"><HomeIcon className='icon'/>Home</HashLink></li>
+                    <li><HashLink to="/#about" scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}><AboutIcon className='icon'/>About</HashLink></li>
+                    <li><HashLink to="/#projects" scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}><ProjectIcon className='icon'/>Projects</HashLink></li>
+                    <li><div className='nav-pet-btn mobile'><PetManager /><span>Pet</span></div></li>
                 </ul>
             </nav>
         </header>

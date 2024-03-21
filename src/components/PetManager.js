@@ -57,7 +57,7 @@ const PetManager = () => {
   const showBadge = dogHunger < 7;
 
   return (
-    <div>
+    <div className='sidebar-right'>
       
       <PetButton onClick={handleButtonClick} showBadge={showBadge} />
       <PetPopup

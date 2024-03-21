@@ -50,35 +50,37 @@ const ProjectCards = ({ restBase, id }) => {
     };
 
     return (
-        <section>
-            <h3>See more projects...</h3>
+        <section className="other-projects">
+            <div >
+                <h3>See more projects...</h3>
+                <div className="project-cards">
+                    {restData.map(project => (
+                        id !== project.id && (
+                            <div
+                                key={project.id}
+                                className="project-card"
+                                onClick={() => {
+                                    navigate(`/projects/${project.id}`)
+                                }}>
 
-            {restData.map(project => (
-                id !== project.id && (
-                    <div
-                        key={project.id}
-                        className="product-card"
-                        onClick={() => {
-                            navigate(`/projects/${project.id}`)
-                        }}>
-
-                        <span className="project-card-title" key={project.id}>{project.title.rendered}</span>
-                        <img src={getMedia(project.acf.project_card_image)} alt={getMediaAlt(project.acf.project_card_image)} />
-                        <div className="project-card-toolkit">
-                            <ul>
-                                {project._embedded['wp:term'] && project._embedded['wp:term'].map(termArray => (
-                                    termArray
-                                        .filter(term => term.taxonomy === 'category')
-                                        .map(category => (
-                                            <li key={category.id}>{category.name}</li>
-                                        ))
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                )
-            ))}
-
+                                <img src={getMedia(project.acf.project_card_image)} alt={getMediaAlt(project.acf.project_card_image)} />
+                                <span className="project-card-title" key={project.id}>{project.title.rendered}</span>
+                                <div className="project-card-toolkit">
+                                    <ul>
+                                        {project._embedded['wp:term'] && project._embedded['wp:term'].map(termArray => (
+                                            termArray
+                                                .filter(term => term.taxonomy === 'category')
+                                                .map(category => (
+                                                    <li key={category.id}>{category.name}</li>
+                                                ))
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        )
+                    ))}
+                </div>
+            </div>
         </section>
     )
 }

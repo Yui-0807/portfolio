@@ -6,6 +6,7 @@ import Header from './components/Header';
 import About from './components/About';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
+import SidebarRight from './components/SidebarRight';
 
 
 function App() {
@@ -34,11 +35,12 @@ function App() {
         <Header />
         <section className='main-content'>
           <Routes>
-            <Route path="/" element={<HomePage restBase={restBase} />} />
+            <Route path="/" element={<HomePage restBase={restBase}  />} />
             <Route path="/projects" element={<Projects restBase={restBase} />} />
-            <Route path="/projects/:id" element={<SingleProjectPage restBase={restBase} />} />
+            <Route path="/projects/:id" element={<SingleProjectPage restBase={restBase} featuredImage={featuredImage} />} />
           </Routes>
         </section>
+        <SidebarRight />
         <Footer />
       </main>
     </BrowserRouter>
