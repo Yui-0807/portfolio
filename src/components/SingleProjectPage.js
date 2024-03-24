@@ -56,9 +56,9 @@ const SingleProjectPage = ({ restBase }) => {
     return (
         <>
 
-            <h1>{restData.title.rendered}</h1>
             {Object.keys(restData).length > 0 &&
                 <main className="single-project">
+                    <h1>{restData.title.rendered}</h1>
                     <div className="single-project-banner">
                         <img
                             key={restData.acf.banner_image}
