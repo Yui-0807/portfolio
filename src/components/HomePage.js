@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
-import scrollDownGif from "../styles/scroll-down.gif"; 
+import scrollDownGif from "../images/scroll-down.gif"; 
 
 const HomePage = ({ restBase }) => {
 

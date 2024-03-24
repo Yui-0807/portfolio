@@ -175,7 +175,7 @@ button {
 
     .main-content {
         grid-area: main-content;
-        max-width: max-content;
+        /* max-width: max-content; */
         /* padding: 1rem; */
     }
 
@@ -314,12 +314,151 @@ button {
     }
 }
 
+/* =============================Pet Manager============================= */
+.offcanvas-body p {
+    margin: 0;
+}
+
+.offcanvas-header{
+    /* background-color: var(--surface-color); */
+    color: var(--primary-color);
+}
+.accordion-button {
+    color: var(--primary-color);
+}
+.accordion-button:not(.collapsed){
+    color: var(--primary-color);
+    background-color: var(--secondary-light-gray-color);
+}
+
+.options label {
+    margin: 1.5rem 0;
+    padding: 0 1.5rem 1rem;
+    /* font-size: 1rem; */
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    opacity: 0;
+}
+
+.value {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px 5px 40px;
+    border-radius: 20px;
+}
+
+.value:hover {
+    background: var(--secondary-light-gray-color);
+}
+
+.value::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #bababa;
+    outline: 0px solid var(--secondary-pink-color);
+    transition: 0.4s;
+}
+
+input[type="radio"]:checked~.value {
+    color: var(--primary-white-color);
+    border-width: 5px;
+    background: var(--secondary-pink-color);
+    transition: 0.4s;
+}
+
+input[type="radio"]:checked~.value::before {
+    outline-width: 5px;
+    background: var(--primary-white-color);
+}
+
+.checked {
+    /* border: 1px solid var(--secondary-light-gray-color); */
+    background-color: var(--secondary-light-pink-color);
+    border-radius: var(--large-button-border-radius);
+}
+
+.options p {
+    margin: 0;
+    width: fit-content;
+}
+
+.options span {
+    margin-left: .5rem;
+}
+
+.options img, .step-two img {
+    width: 150px;
+}
+.step-two img {
+    margin: 2rem 0;
+}
+.pet-info {
+    margin: 1.5rem 0;
+    padding-bottom: 1rem;
+    border: 1px solid var(--secondary-light-gray-color);
+    border-radius: var(--large-button-border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: #004574;
+    /* background-color: var(--secondary-light-pink-color); */
+}
+.pet-info span {
+    font-weight: 600;
+}
+
+.css-gavykb-MuiChip-root {
+    font-family: 'Lexend', sans-serif;;
+    background-color: var(--primary-white-color);
+    color: var(--primary-color);
+}
+
+.css-gavykb-MuiChip-root {
+    color: var(--primary-color);
+}
+
+.selected {
+    background-color: var(--primary-color);
+    border-radius: var(--large-button-border-radius) var(--large-button-border-radius) 0 0;
+    color: var(--primary-white-color);
+    width: 100%;
+    margin: 0;
+    padding: .5rem 1rem;
+}
+.pet-info p:not(.selected)  {
+    padding: .5rem 1rem 0 1rem;
+}
+
+.pet-btns {
+    display: flex;
+    gap: max(10%,1rem);
+    margin: 1rem 0;
+}
+.pet-btns button {
+    width: 150px;
+}
+.feed-btn {
+    /* margin-right: .5rem; */
+}
+
+
 /* =============================Projects============================= */
 .projects {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-image: url(./project-bg.svg);
+    background-image: url(../images/project-bg.svg);
     background-size: auto 100%;
     background-position: 65% 0%;
     width: max(100vw);
@@ -467,7 +606,7 @@ button {
 .single-project h1 {
     padding: .7rem;
     text-align: center;
-    background-image: url(single-h1-bg.svg);
+    background-image: url(../images/single-h1-bg.svg);
     background-size: cover;
     /* background-position: 70% 95%; */
     /* background-color: var(--surface-color); */
@@ -586,6 +725,7 @@ button {
     .single-project-content {
         max-width: 630px;
     }
+
     .single-project-highlights {
         gap: 1.5rem;
     }
@@ -663,6 +803,10 @@ button {
 }
 
 /* =============================Project Card============================= */
+.other-projects {
+    width: 100%;
+}
+
 .other-projects h3 {
     margin: .5rem;
 }
@@ -752,12 +896,12 @@ button {
         color: var(--primary-color);
         border-radius: 20px 20px 0 20px;
         /* top-left, top-right, bottom-right, bottom-left */
-        clip-path: 
-        polygon(0 0, 
-        100% 0, 
-        0 0, 
-        calc(100% - 20px) 100% , 
-        );
+        clip-path:
+            polygon(0 0,
+                100% 0,
+                0 0,
+                calc(100% - 20px) 100%,
+            );
     }
 
     .nav-pet-btn .icon-label {
@@ -791,6 +935,7 @@ button {
 .footer .logo {
     display: none;
 }
+
 /* .footer .copyright{
     margin-right: auto;
 } */
@@ -836,11 +981,11 @@ button {
     } */
 
     /* .footer .right { */
-        /* flex-direction: column; */
-        /* align-items: start; */
-        /* margin-left: auto; */
-        /* width: fit-content; */
-        /* gap: .3rem; */
+    /* flex-direction: column; */
+    /* align-items: start; */
+    /* margin-left: auto; */
+    /* width: fit-content; */
+    /* gap: .3rem; */
     /* } */
 
     /* .footer li {
@@ -868,7 +1013,7 @@ button {
 
     .footer .left {
         display: flex;
-        
+
         flex-direction: column;
         justify-content: space-evenly;
         /* width: fit-content; */

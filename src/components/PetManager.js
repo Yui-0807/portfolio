@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PetButton from './PetButton';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import catImage from "../styles/cat.svg";
-import dogImage from "../styles/dog.svg";
+import Accordion from 'react-bootstrap/Accordion';
+
+import catImage from "../images/cat.svg";
+import dogImage from "../images/dog.svg";
 
 const steps = [
   {
@@ -14,9 +16,9 @@ const steps = [
     description: `Choose whether you want to manage a dog or a cat.`,
   },
   {
-    label: 'Start manage your pet',
+    label: 'Welcome to Pet Manager',
     description:
-      'You can feed or pet it',
+      'Take care of your cute virtual pet by watching its hunger and happiness. Hunger goes down every 3 seconds. When it hits 0, happiness drops every 5 seconds. If either gets too low, a red dot appears. Keep an eye out and make your pet happy!',
   }
 ];
 
@@ -60,7 +62,7 @@ const PetManager = () => {
       if (activeStep !== 0 && hunger > 0) {
         setHunger(prevHunger => prevHunger - 1);
       }
-    }, 1000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [activeStep, hunger]);
@@ -71,9 +73,9 @@ const PetManager = () => {
     // Check if dog's hunger stays at 0 for over 5 seconds
     if (hunger === 0) {
       decreaseHappinessInterval = setInterval(() => {
-        // Decrease dog's happiness every 30 seconds
+        
         setHappiness(prevHappiness => Math.max(prevHappiness - 1, 0));
-      }, 2000); // 30 seconds :30000
+      }, 5000); // 30 seconds :30000
     } else {
       clearInterval(decreaseHappinessInterval);
     }
@@ -93,8 +95,7 @@ const PetManager = () => {
 
   const currentStep = steps[activeStep];
 
-  // Show badge when hunger level is below 7
-  const showBadge = hunger < 7;
+  const showBadge = hunger < 6 || happiness < 6;
 
   return (
     <div className='sidebar-right'>
@@ -103,22 +104,21 @@ const PetManager = () => {
       <Offcanvas show={showPopup} onHide={handleClosePopup} placement='end'>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>{currentStep.label}</Offcanvas.Title>
-
         </Offcanvas.Header>
         <Offcanvas.Body>
           {activeStep === 0 && (
-            <div>
+            <div className='step-one'>
               <p>{currentStep.description}</p>
-              <div>
+              <div className='options'>
                 {currentStep.options.map((option, index) => (
-                  <label key={index}>
-                    <input
+                  <label key={index} className={selectedOption === option.label ? 'checked' : ''}>
+                    <p><input
                       type="radio"
                       value={option.label}
                       checked={selectedOption === option.label}
                       onChange={() => setSelectedOption(option.label)}
                     />
-                    {option.label}
+                      <span className='value'>{option.label}</span></p>
                     <img src={option.image} alt={option.label} />
                   </label>
                 ))}
@@ -126,13 +126,24 @@ const PetManager = () => {
             </div>
           )}
           {activeStep === 1 && (
-            <div>
-              <p>{currentStep.description}</p>
-              <p>{selectedOption}</p>
-              <p>Hunger&#40;max:10&#41;: {hunger}</p>
-              <p>Happiness&#40;max:10&#41;: {happiness}</p>
-              <button onClick={feed}>Feed</button>
-              <button onClick={pet}>Pet</button>
+            <div className='step-two'>
+              <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>How to play</Accordion.Header>
+                  <Accordion.Body>
+                    <p>{currentStep.description}</p>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+              <section className='pet-info'>
+                <p className='selected'>Selected: <span>{selectedOption}</span> </p>
+                <p>Hunger&#40;max:10&#41;: <span>{hunger}</span></p>
+                <p>Happiness&#40;max:10&#41;: <span>{happiness}</span></p>
+              </section>
+              <section className='pet-btns'>
+                <button className='feed-btn' onClick={feed}>Feed</button>
+                <button className='pet-btn' onClick={pet}>Pet</button>
+              </section>
               <img src={steps[0].options.find(option => option.label === selectedOption)?.image} alt={selectedOption} />
             </div>
           )}
