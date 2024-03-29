@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
-import scrollDownGif from "../images/scroll-down.gif"; 
+import scrollDownGif from "../images/scroll-down.gif";
+import Spinner from 'react-bootstrap/Spinner';
 
 const HomePage = ({ restBase }) => {
 
@@ -27,6 +28,8 @@ const HomePage = ({ restBase }) => {
 
     return (
         <>
+          {isLoaded ?
+          <>
             <section className="home-banner">
                 {restDataPage.map(item => (
                     <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
@@ -42,6 +45,7 @@ const HomePage = ({ restBase }) => {
 
             <Projects restBase={restBase} />
             <About restBase={restBase} restDataPage={restDataPage} />
+            </> : <Spinner animation="border" />} 
         </>
     )
 }

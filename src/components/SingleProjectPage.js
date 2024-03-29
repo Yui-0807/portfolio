@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { HashLink } from 'react-router-hash-link';
 import { useNavigate, useParams } from "react-router"
 import ProjectCards from "./ProjectCards"
+import Spinner from 'react-bootstrap/Spinner';
 
 
 const SingleProjectPage = ({ restBase }) => {
@@ -55,7 +56,8 @@ const SingleProjectPage = ({ restBase }) => {
 
     return (
         <>
-
+          {isLoaded ?
+          <>
             {Object.keys(restData).length > 0 &&
                 <main className="single-project">
                     <h1>{restData.title.rendered}</h1>
@@ -65,6 +67,7 @@ const SingleProjectPage = ({ restBase }) => {
                             src={getMedia(restData.acf.banner_image)}
                             alt={getMediaAlt(restData.acf.banner_image)}
                         />
+                        {/* <Skeleton variant="rounded" animation="wave" width={514} height={240}/> */}
                         <div className="single-project-buttons">
                             <div><a href={restData.acf.live_site}>Live Site</a></div>
                             <div><a href={restData.acf.github}>GitHub</a></div>
@@ -115,6 +118,7 @@ const SingleProjectPage = ({ restBase }) => {
                     </div>
                 </main>}
             <ProjectCards restBase={restBase} id={restData.id} />
+            </> : <Spinner animation="border" />} 
         </>
     )
 }
