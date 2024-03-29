@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
+import Spinner from 'react-bootstrap/Spinner';
+
+
 
 const About = ({ restBase, restDataPage }) => {
 
@@ -15,12 +19,14 @@ const About = ({ restBase, restDataPage }) => {
             if (response.ok) {
                 const data = await response.json();
                 setMedia(data);
+                setLoadStatus(true)
             } else {
                 setLoadStatus(false)
             }
         };
-
         fetchMedia();
+        // Call filterCategories with "Programming" as default
+        filterCategories("Programming");
     }, [restPathMedia]);
 
     const getMedia = (mediaId) => {
@@ -51,38 +57,47 @@ const About = ({ restBase, restDataPage }) => {
         fetchCategories();
     }
 
+
     return (
-        <article className='about' id="about">
-            <section className="about-content">
-                <h2>About me</h2>
-                {restDataPage.map(data => (
-                    <p >{data.acf.who_i_am}</p>
-                ))}
-            </section>
+        <>
+            {isLoaded ?
+                <article className='about' id="about">
+                    <section className="about-content">
+                        <h2>About me</h2>
+                        {restDataPage.map(data => (
+                            <p >{data.acf.who_i_am}</p>
+                        ))}
+                    </section>
 
-            <section className="skill-container">
-                <h2>Skills</h2>
-                <div className="skill-btn-container">
-                    <button onClick={() => filterCategories("Programming")} className={filterCriterion === "Programming" ? "active" : ""}>Programming</button>
-                    <button onClick={() => filterCategories("Design")} className={filterCriterion === "Design" ? "active" : ""}>Design</button>
-                    <button onClick={() => filterCategories("CMS/E-commerce")} className={filterCriterion === "CMS/E-commerce" ? "active" : ""}>CMS/E-commerce</button>
-                </div>
-                <ul className="skill-list">
-                    {filteredCategories.map(skills => (
-                        <li key={skills.id}>{skills.name}</li>
-                    ))}
-                </ul>
-            </section>
+                    <section className="skill-container">
+                        <h2>Skills</h2>
+                        <div className="skill-btn-container">
+                            <button
+                                onClick={() => filterCategories("Programming")} className={filterCriterion === "Programming" ? "active" : ""} >Programming</button>
+                            <button
+                                onClick={() => filterCategories("Design")} className={filterCriterion === "Design" ? "active" : ""}>Design</button>
+                            <button
+                                onClick={() => filterCategories("CMS/E-commerce")} className={filterCriterion === "CMS/E-commerce" ? "active" : ""}>CMS/E-commerce</button>
+                        </div>
+                        <ul
+                            className='skill-list '>
+                            {filteredCategories.map(skills => (
+                                <li key={skills.id}>{skills.name}</li>
+                            ))}
+                        </ul>
+                    </section>
 
-            <section className="other-gallery">
-                <h2>Other things I enjoy...</h2>
-                {restDataPage.map(data => (
-                    <div className="gallery-images">{data.acf.other_things_i_enjoy.map(image => (
-                        <img key={image} src={getMedia(image)} alt={getMediaAlt(image)} />
-                    ))}</div>
-                ))}
-            </section>
-        </article>
+                    <section className="other-gallery">
+                        <h2>Other things I enjoy...</h2>
+                        {restDataPage.map(data => (
+                            <div className="gallery-images">{data.acf.other_things_i_enjoy.map(image => (
+                                <img key={image} src={getMedia(image)} alt={getMediaAlt(image)} />
+                            ))}</div>
+                        ))}
+                    </section>
+                </article>
+                : <Spinner animation="border" />}
+        </>
     )
 }
 
