@@ -127,7 +127,7 @@ const PetManager = () => {
           )}
           {activeStep === 1 && (
             <div className='step-two'>
-              <Accordion defaultActiveKey="0">
+              <Accordion>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>How to play</Accordion.Header>
                   <Accordion.Body>

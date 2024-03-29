@@ -175,13 +175,10 @@ button {
 
     .main-content {
         grid-area: main-content;
-        /* max-width: max-content; */
-        /* padding: 1rem; */
     }
 
     .sidebar-right {
         grid-area: sidebar-right;
-        /* padding-right: 1rem ; */
     }
 
     .footer {
@@ -290,7 +287,6 @@ button {
     }
 
     .header a {
-        /* color: var(--primary-white-color); */
         color: var(--primary-white-color);
         font-size: 1rem;
     }
@@ -319,14 +315,15 @@ button {
     margin: 0;
 }
 
-.offcanvas-header{
-    /* background-color: var(--surface-color); */
+.offcanvas-header {
     color: var(--primary-color);
 }
+
 .accordion-button {
     color: var(--primary-color);
 }
-.accordion-button:not(.collapsed){
+
+.accordion-button:not(.collapsed) {
     color: var(--primary-color);
     background-color: var(--secondary-light-gray-color);
 }
@@ -334,7 +331,6 @@ button {
 .options label {
     margin: 1.5rem 0;
     padding: 0 1.5rem 1rem;
-    /* font-size: 1rem; */
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -383,7 +379,6 @@ input[type="radio"]:checked~.value::before {
 }
 
 .checked {
-    /* border: 1px solid var(--secondary-light-gray-color); */
     background-color: var(--secondary-light-pink-color);
     border-radius: var(--large-button-border-radius);
 }
@@ -397,12 +392,15 @@ input[type="radio"]:checked~.value::before {
     margin-left: .5rem;
 }
 
-.options img, .step-two img {
+.options img,
+.step-two img {
     width: 150px;
 }
+
 .step-two img {
     margin: 2rem 0;
 }
+
 .pet-info {
     margin: 1.5rem 0;
     padding-bottom: 1rem;
@@ -412,14 +410,15 @@ input[type="radio"]:checked~.value::before {
     flex-direction: column;
     align-items: start;
     color: #004574;
-    /* background-color: var(--secondary-light-pink-color); */
 }
+
 .pet-info span {
     font-weight: 600;
 }
 
 .css-gavykb-MuiChip-root {
-    font-family: 'Lexend', sans-serif;;
+    font-family: 'Lexend', sans-serif;
+    ;
     background-color: var(--primary-white-color);
     color: var(--primary-color);
 }
@@ -436,18 +435,21 @@ input[type="radio"]:checked~.value::before {
     margin: 0;
     padding: .5rem 1rem;
 }
-.pet-info p:not(.selected)  {
+
+.pet-info p:not(.selected) {
     padding: .5rem 1rem 0 1rem;
 }
 
 .pet-btns {
     display: flex;
-    gap: max(10%,1rem);
+    gap: max(10%, 1rem);
     margin: 1rem 0;
 }
+
 .pet-btns button {
     width: 150px;
 }
+
 .feed-btn {
     /* margin-right: .5rem; */
 }
@@ -469,68 +471,88 @@ input[type="radio"]:checked~.value::before {
 
 .projects h2 {
     padding: 1rem .5rem;
-    /* width: max(100vw); */
-    /* margin: 0 calc(50% - 50vw);     */
     font-size: 2rem;
     text-align: center;
     color: var(--primary-white-color);
-    /* background-color: var(--primary-color); */
 }
 
 .project {
     height: 40vh;
     margin: .5rem 1rem;
     background-color: var(--primary-white-color);
-    /* box-shadow: 0 5px 15px rgb(219, 163, 143);  */
-    /* border: 1px solid var(--primary-color); */
     border-radius: var(--large-button-border-radius);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     cursor: pointer;
     position: relative;
-    /* align-items: center; */
-    /* background-color: var(--secondary-light-gray-color); */
-
 }
 
 .project-title {
-
     line-height: 2rem;
     padding: 1.5rem 1rem;
     margin: 0;
     font-weight: 400;
     text-align: center;
-    /* align-self: center; */
-    /* flex-grow: 1;  */
-    /* flex-basis: 0;  */
     color: var(--primary-color);
     background-color: var(--secondary-light-pink-color);
-    /* border: 1px solid var(--primary-color); */
     border-radius: var(--large-button-border-radius);
     width: 100%;
-    /* min-height: 5rem; */
     position: absolute;
     bottom: 0;
 }
 
 .project img {
-    /* padding: 0 1rem 1rem 1rem; */
     height: 15rem;
     object-fit: cover;
-    border-radius: var(--large-button-border-radius) var(--large-button-border-radius) 0 0;
+    border-radius:  var(--large-button-border-radius) ; 
 }
 
 .read-more-button {
     display: none;
-    /* font-size: 1.2rem;
-    align-self: center;
-    color: var(--secondary-blue-text-color);
-    padding: .7rem;
-    text-align: center;
-    flex-grow: 1; 
-    flex-basis: 0;  */
-    /* border-radius: 0 0 var(--large-button-border-radius) var(--large-button-border-radius);  */
+   
+}
+
+@media (min-width: 789px) {
+    .project {
+        background-color: transparent;
+        height: 100vh;
+        flex-direction: row;
+        justify-content: center;
+        border-radius:  var(--large-button-border-radius) ; 
+    }
+
+    .project img {
+        max-width: 480px;
+        height: 20rem;
+    }
+    .project-info {
+        padding: 0 2rem;
+    }
+    .project-title {
+        background-color: transparent;
+        color: var(--primary-white-color);
+        padding-left: 0;
+        padding-top: 0;
+        /* width: fit-content; */
+        /* height: fit-content; */
+        position: unset;
+        /* flex-basis: 50%; */
+        align-items: start;
+    }
+
+    .read-more-button {
+        display: block;
+        font-size: 1.2rem;
+        align-self: start;
+        color: var(--secondary-blue-text-color);
+        padding: .5rem .7rem;
+        width: fit-content;
+        text-align: center;
+        color: var(--primary-color);
+        background-color: var(--secondary-light-pink-color);
+        border-radius: var(--large-button-border-radius);
+    }
 }
 
 /* =============================About============================= */
@@ -545,7 +567,7 @@ input[type="radio"]:checked~.value::before {
 
 .about-content,
 .skill-container {
-    height: 50vh;
+    height: 40vh;
 }
 
 .skill-btn-container {
@@ -563,15 +585,11 @@ input[type="radio"]:checked~.value::before {
 
 .skill-list {
     margin: 1rem 0;
-    padding: .5rem;
+    padding: 0;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
-    /* border: 1px solid var(--primary-gray-color); */
-    /* border-radius: var(--large-button-border-radius); */
-    /* background-color: var(--surface-color); */
-    /* box-shadow: 0 4px 6px var(--secondary-light-gray-color);  */
 }
 
 .skill-list li {
@@ -579,7 +597,6 @@ input[type="radio"]:checked~.value::before {
     width: fit-content;
     color: var(--secondary-blue-color);
     border: 1px solid var(--secondary-blue-color);
-    /* background-color: var(--surface-color); */
     border-radius: var(--small-button-border-radius);
 }
 
@@ -608,10 +625,7 @@ input[type="radio"]:checked~.value::before {
     text-align: center;
     background-image: url(../images/single-h1-bg.svg);
     background-size: cover;
-    /* background-position: 70% 95%; */
-    /* background-color: var(--surface-color); */
     color: var(--primary-white-color);
-    /* margin: calc(50% - 50vw) calc(50% - 50vw) 1rem; */
     margin: calc(50% - 50vw);
 }
 
@@ -674,7 +688,6 @@ input[type="radio"]:checked~.value::before {
 .single-project-toolkit li {
     padding: .3rem .5rem;
     width: fit-content;
-    /* background-color: var(--surface-color); */
     color: var(--secondary-blue-color);
     border: 1px solid var(--secondary-blue-color);
     border-radius: var(--small-button-border-radius);
@@ -682,7 +695,6 @@ input[type="radio"]:checked~.value::before {
 }
 
 .single-project-overview {
-    /* height: 100vh; */
     margin: 3rem .5rem;
 }
 
@@ -854,11 +866,8 @@ input[type="radio"]:checked~.value::before {
     height: 10rem;
     object-fit: contain;
     align-self: center;
-    /* background: rgb(232, 232, 232); */
     clip-path: inset(.5rem .5rem 0 .5rem round var(--small-button-border-radius));
     background: linear-gradient(122deg, rgba(232, 232, 232, 1) 0%, rgba(248, 242, 236, 1) 39%, rgba(245, 231, 227, 1) 100%);
-    /* margin: 0 1rem; */
-    /* width: 95%; */
 }
 
 .project-card-toolkit ul {
@@ -873,7 +882,6 @@ input[type="radio"]:checked~.value::before {
 .project-card-toolkit ul li {
     padding: .3rem .5rem;
     width: fit-content;
-    /* background-color: var(--secondary-light-gray-color); */
     color: var(--secondary-blue-color);
     border: 1px solid var(--secondary-blue-color);
     border-radius: var(--small-button-border-radius);
@@ -886,12 +894,20 @@ input[type="radio"]:checked~.value::before {
 }
 
 @media (min-width: 768px) {
+    .pet-manager-btn {
+        /* padding: 1.2rem; */
+    }
+
+    .MuiBadge-root.css-1c32n2y-MuiBadge-root {
+        padding: 1.2rem;
+    }
+
     .nav-pet-btn.desktop {
         display: block;
         position: fixed;
         bottom: 11.7rem;
-        right: 1rem;
-        padding: 1.2rem;
+        right: 1.3rem;
+        padding: 0rem;
         background-color: var(--surface-color);
         color: var(--primary-color);
         border-radius: 20px 20px 0 20px;
@@ -936,9 +952,6 @@ input[type="radio"]:checked~.value::before {
     display: none;
 }
 
-/* .footer .copyright{
-    margin-right: auto;
-} */
 
 .footer .right {
     list-style: none;
@@ -1008,16 +1021,12 @@ input[type="radio"]:checked~.value::before {
     .footer nav {
         display: flex;
         align-items: start;
-        /* justify-content: unset; */
     }
 
     .footer .left {
         display: flex;
-
         flex-direction: column;
         justify-content: space-evenly;
-        /* width: fit-content; */
-        /* margin-right: auto; */
     }
 
     .footer .logo {
@@ -1028,13 +1037,10 @@ input[type="radio"]:checked~.value::before {
     .footer .logo a {
         color: #f2f2f2;
         font-weight: 500;
-        /* font-size: max(1.2rem, 1.8rem); */
     }
 
     .footer .right {
         flex-direction: column;
-        /* align-items: start; */
-        /* margin-left: auto; */
         width: fit-content;
         gap: .3rem;
     }
