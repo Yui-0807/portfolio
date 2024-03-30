@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { BrowserRouter as Router, Routes, Route, NavLink, Link, BrowserRouter } from 'react-router-dom';
 import HomePage from './components/HomePage.js';
 import SingleProjectPage from './components/SingleProjectPage.js';
