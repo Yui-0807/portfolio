@@ -1,0 +1,135 @@
+@import '../default/variables.scss';
+.footer {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+}
+
+.footer p {
+    font-size: min(.9rem, 1rem);
+    color: $primary-white-color ;
+    margin: 0;
+}
+
+.footer nav {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer .logo {
+    display: none;
+}
+
+
+.footer .right {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    /* justify-content: space-evenly; */
+}
+
+.footer .icon-label {
+    display: none;
+}
+
+.footer svg {
+    height: 40px;
+    width: 1.5rem;
+}
+
+@media (min-width: 576px) {
+    /* .footer nav {
+        display: flex;
+        align-items: center;
+    } */
+
+    /* .footer .left {
+        display: block;
+        width: fit-content;
+        margin-right: auto;
+    } */
+
+    /* .footer .logo {
+        display: block;
+    } */
+
+    /* .footer .logo a {
+        color: #f2f2f2;
+        line-height: 1;
+        font-weight: 500;
+        font-size: 1.2rem;
+         font-size: max(1.2rem, 1.8rem); 
+    } */
+
+    /* .footer .right { */
+    /* flex-direction: column; */
+    /* align-items: start; */
+    /* margin-left: auto; */
+    /* width: fit-content; */
+    /* gap: .3rem; */
+    /* } */
+
+    /* .footer li {
+        width: fit-content;
+    } */
+
+    /* .footer svg {
+        height: 30px;
+    } */
+
+    /* .footer .icon-label {
+        display: inline-block;
+        margin-left: 1rem;
+        font-size: min(.9rem, 1rem);
+        cursor: pointer;
+    } */
+}
+
+@media (min-width: 768px) {
+    .footer nav {
+        display: flex;
+        align-items: start;
+    }
+
+    .footer .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .footer .logo {
+        display: block;
+        margin-bottom: auto;
+    }
+
+    .footer .logo a {
+        color: #f2f2f2;
+        font-weight: 500;
+    }
+
+    .footer .right {
+        flex-direction: column;
+        width: fit-content;
+        gap: .3rem;
+    }
+
+    .footer li {
+        width: fit-content;
+    }
+
+    .footer svg {
+        height: 30px;
+    }
+
+    .footer .icon-label {
+        display: inline-block;
+        margin-left: 1rem;
+        font-size: min(.9rem, 1rem);
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,198 @@
+@import 'variables.scss';
+body {
+    font-family: 'Lexend', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: $primary-gray-color;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+}
+
+/* Typography */
+/* Define styles for headings, paragraphs, and other text elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $primary-color;
+    font-family: "Yeseva One", serif;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+p {
+    margin: 1.2rem 0 0 0;
+    padding: 0;
+    color: $primary-gray-color;
+}
+
+/* Links */
+a {
+    color: $primary-white-color;
+    text-decoration: none;
+}
+
+a:visited,
+a:hover,
+a:focus,
+a:active {
+    color: $primary-color;
+}
+
+a:visited {
+    /* color: $primary-white-color ; */
+}
+
+a:hover {}
+
+a:focus {}
+
+a:active {}
+
+img {
+    width: 100%;
+    /* border: #F38D9B 2px solid; */
+}
+
+button {
+    border: none;
+    padding: .5rem;
+    border-radius: $small-button-border-radius;
+    background-color: $secondary-light-gray-color;
+    color: $secondary-blue-color;
+}
+
+/* Layout */
+/* Define styles for the layout structure of the website */
+
+
+.container {
+    margin: 0;
+    padding: 0;
+
+}
+
+.header {
+    /* background-color: $primary-color ;
+    color: $primary-white-color ; */
+    background-color: $surface-color;
+    color: $primary-color;
+    box-shadow: 0 6px 10px $secondary-light-gray-color;
+}
+
+.main-content {
+    /* padding: .5rem; */
+}
+
+.footer {
+    background-color: $primary-color ;
+    color: $primary-white-color ;
+
+}
+
+@media (min-width: $sm)  {
+    .container {
+        max-width: unset;
+    }
+}
+
+/* Responsive Design */
+@media (min-width: $md)  {
+
+    .container {
+        display: grid;
+        grid-template-areas:
+            "header header header header header header"
+            "sidebar-left main-content main-content main-content main-content sidebar-right"
+            "footer footer footer footer footer footer";
+        grid-template-columns: 1fr repeat(4, minmax(100px, 1.5fr   1fr));
+        grid-template-rows: 1fr auto 1fr;
+        height: 100vh;
+
+
+    }
+
+    .header {
+        grid-area: header;
+        padding: .5rem;
+    }
+
+    .sidebar-left {
+        grid-area: sidebar-left;
+        padding-left: 1rem;
+    }
+
+    .main-content {
+        grid-area: main-content;
+    }
+
+    .sidebar-right {
+        grid-area: sidebar-right;
+    }
+
+    .footer {
+        grid-area: footer;
+        /* padding: .5rem; */
+    }
+
+}
+
+.nav-pet-btn.desktop {
+    display: none;
+}
+
+@media (min-width: 768px)  {
+    .pet-manager-btn {
+        /* padding: 1.2rem; */
+    }
+
+    .MuiBadge-root.css-1c32n2y-MuiBadge-root {
+        padding: 1.2rem;
+    }
+
+    .nav-pet-btn.desktop {
+        display: block;
+        position: fixed;
+        bottom: 11.7rem;
+        right: 1.3rem;
+        padding: 0rem;
+        background-color: $surface-color ;
+        color: $primary-color ;
+        border-radius: 20px 20px 0 20px;
+        /* top-left, top-right, bottom-right, bottom-left */
+        clip-path:
+            polygon(0 0,
+                100% 0,
+                0 0,
+                calc(100% - 20px) 100%)
+             ;
+    }
+
+    .nav-pet-btn .icon-label {
+        display: none;
+    }
+}

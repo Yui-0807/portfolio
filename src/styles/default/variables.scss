@@ -1,0 +1,28 @@
+/* Global Styles */
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Yeseva+One&display=swap');
+
+$primary-color: #004574;
+/* --primary-light-color: #FBF7F4; */
+
+$primary-white-color: #FFFFFF;
+$primary-gray-color: #525252;
+$secondary-blue-color: #004574;
+
+$secondary-pink-color: #F38D9B;
+$secondary-light-pink-color: #f8efec;
+$secondary-light-gray-color: #f2f2f2;
+
+$background-color: #FBF7F4;
+$surface-color: #ffffffce;
+$card-background: linear-gradient(122deg, rgba(232, 232, 232, 1) 0%, rgba(251, 224, 208, 1) 47%, rgba(245, 231, 227, 1) 100%);
+
+$small-button-border-radius: 5px;
+$large-button-border-radius: 12px;
+
+/* Media query breakpoints */
+$sm: 576px; //small
+$md: 768px; //medium
+$lg: 992px; //large
+$xl: 1200px; //Extra large
+$xxl :1400px //Extra extra large

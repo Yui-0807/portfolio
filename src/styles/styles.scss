@@ -1,0 +1,18 @@
+// Default
+@import '../styles/default/variables.scss';
+@import '../styles/default/layout.scss';
+
+// Home Page
+@import '../styles/home-page/header.scss';
+@import '../styles/home-page/footer.scss';
+
+@import '../styles/home-page/home-banner.scss';
+@import '../styles/home-page/about.scss';
+@import '../styles/home-page/projects.scss';
+
+// Single Project Page
+@import '../styles/single-page/single-project.scss';
+@import '../styles/single-page/single-project-card.scss';
+
+// Pet Manager
+@import '../styles/pet-manager/pet-manager.scss';
