@@ -11,104 +11,87 @@
     margin: 0 calc(50% - 50vw);
     padding: 9rem 0 10rem 0;
 
-}
-
-.projects h2 {
-    padding: 1rem .5rem;
-    font-size: 2rem;
-    text-align: center;
-    color: $primary-white-color ;
-}
-
-@media (min-width:31.25em) {
-    .projects h2 {
-    font-size: max(30%,3rem);
-    }
-}
-
-.project {
-    height: 100vh;
-    margin: .5rem 1rem;
-    /* background-color: $primary-white-color ; */
-    border-radius: $large-button-border-radius ;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* cursor: pointer; */
-    position: relative;
-}
-
-.project-title {
-    line-height: 2rem;
-    padding: 1.5rem 1rem;
-    margin: 0;
-    font-weight: 400;
-    text-align: center;
-    color: $primary-color ;
-    color: $secondary-light-gray-color ;
-    /* background-color: $secondary-light-pink-color ; */
-    /* border-radius: $large-button-border-radius ; */
-    width: 100%;
-    /* position: absolute; */
-    /* bottom: 0; */
-}
-
-.project img {
-    /* height: 15rem; */
-    object-fit: cover;
-    border-radius: $large-button-border-radius ;
-}
-
-.read-more-button {
-    display: none;
-
-}
-@media (min-width: 31.25em) {
-    .project-title{
-        font-size: max(20%, 2.3rem);
-    }
-}
-@media (min-width: 700px) {
-    .project {
-        background-color: transparent;
-        height: 100vh;
-        flex-direction: row;
-        justify-content: center;
-        border-radius: $large-button-border-radius ;
-    }
-
-    .project img {
-        max-width: 480px;
-        height: 20rem;
-    }
-
-    .project-info {
-        padding: 0 2rem;
-    }
-
-    .project-title {
-        background-color: transparent;
-        color: $primary-white-color ;
-        padding-left: 0;
-        padding-top: 0;
-        /* width: fit-content; */
-        /* height: fit-content; */
-        position: unset;
-        /* flex-basis: 50%; */
-        align-items: start;
-    }
-
-    .read-more-button {
-        display: block;
-        font-size: 1.2rem;
-        align-self: start;
-        color: $secondary-blue-color;
-        padding: .5rem .7rem;
-        width: fit-content;
+    h2 {
+        padding: 1rem .5rem;
+        font-size: 2rem;
         text-align: center;
-        color: $primary-color ;
-        background-color: $secondary-light-pink-color ;
-        border-radius: $large-button-border-radius ;
+        color: $primary-white-color;
+
+        @media (min-width: 31.25em) {
+            font-size: max(30%, 3rem);
+        }
+    }
+
+    .project {
+        height: 100vh;
+        margin: .5rem 1rem;
+        border-radius: $large-button-border-radius;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        img {
+            object-fit: cover;
+            border-radius: $large-button-border-radius;
+        }
+
+        .project-title {
+            line-height: 2rem;
+            padding: 1.5rem 1rem;
+            margin: 0;
+            font-weight: 400;
+            text-align: center;
+            color: $secondary-light-gray-color;
+
+            @media (min-width: 31.25em) {
+                font-size: max(20%, 2.3rem);
+            }
+        }
+
+        .read-more-button {
+            display: none;
+
+            @media (min-width: 700px) {
+                display: block;
+                font-size: 1.2rem;
+                align-self: start;
+                color: $secondary-blue-color;
+                padding: .5rem .7rem;
+                width: fit-content;
+                text-align: center;
+                color: $primary-color;
+                background-color: $secondary-light-pink-color;
+                border-radius: $large-button-border-radius;
+            }
+        }
+    }
+
+    @media (min-width: 700px) {
+        .project {
+            background-color: transparent;
+            height: 100vh;
+            flex-direction: row;
+            justify-content: center;
+            border-radius: $large-button-border-radius;
+
+            img {
+                max-width: 480px;
+                height: 20rem;
+            }
+
+            .project-info {
+                padding: 0 2rem;
+            }
+
+            .project-title {
+                background-color: transparent;
+                color: $primary-white-color;
+                padding-left: 0;
+                padding-top: 0;
+                position: unset;
+                align-items: start;
+            }
+        }
     }
 }

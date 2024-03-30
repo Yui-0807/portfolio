@@ -11,38 +11,79 @@
     z-index: 10;
     backdrop-filter: blur(3px);
     /* display: none; */
-}
 
-.header ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    justify-content: space-evenly;
-}
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        justify-content: space-evenly;
 
-.header .logo {
-    display: none;
-}
+        .logo {
+            display: none;
+        }
 
-.header a,
-.nav-pet-btn {
-    padding: .75rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
+        a,
+        .nav-pet-btn {
+            padding: .75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
 
-.header a,
-.header span {
-    font-size: 0.75rem;
-}
+        a,
+        span {
+            font-size: 0.75rem;
+        }
 
-.header a:visited {
-    /* color: $primary-color ; */
+        a:visited {
+            /* color: $primary-color ; */
+        }
+    }
+
+    @media (min-width: 768px) {
+        position: unset;
+        padding: 0 1rem;
+        margin: 0;
+        border-radius: unset;
+
+        background-color: $primary-color;
+        box-shadow: none;
+
+        ul {
+            align-items: center;
+
+            .icon {
+                display: none;
+            }
+
+            a {
+                color: $primary-white-color;
+                font-size: 1rem;
+            }
+
+            .home-link {
+                display: none;
+            }
+
+            .logo {
+                margin-right: auto;
+                display: block;
+
+                a {
+                    font-weight: 500;
+                    font-size: 1.2rem;
+                }
+            }
+
+            .pet-link {
+                display: none;
+            }
+        }
+    }
 }
 
 .home-banner {
@@ -53,102 +94,28 @@
     /* align-items: center; */
     /* justify-content: center; */
     /* position: relative; */
-}
 
-/* 
-.test-container {
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0 calc(50% - 50vw);
-    
-} */
+    .banner-content {
+        position: absolute;
+        left: 0;
+        top: 5rem;
+        right: 0;
+        margin: 0 auto;
 
-/* .diamond {
-    background-image: none;
-    background-image: url(../images/bg-3.svg);
-    height: 72px;
-    width: 72px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in;
-     border: #004574 1px solid; 
-} */
+        .entry-title {
+            font-size: max(70%, 4.3rem);
+            text-align: center;
+        }
 
-/* .diamond:hover {
-    background-image: url(../images/bg-3.svg);
-    background-size: contain;
-    opacity: 1;
-} */
-
-/* .scroll-down {
-    margin-top: 5rem;
-    width: 3.5rem;
-} */
-.banner-content {
-    position: absolute;
-    left: 0;
-    top: 5rem;
-    right: 0;
-    margin: 0 auto;
-}
-
-.entry-title {
-    font-size: max(70%, 4.3rem);
-    text-align: center;
-}
-
-.entry-content {
-    font-size: min(1.2rem, 2rem);
-    text-align: center;
+        .entry-content {
+            font-size: min(1.2rem, 2rem);
+            text-align: center;
+        }
+    }
 }
 
 @media (min-width: 576px) {
     /* .header .home-link{
         display: none;
     } */
-}
-
-@media (min-width: 768px) {
-    .header {
-        position: unset;
-        padding: 0 1rem;
-        margin: 0;
-        border-radius: unset;
-
-        background-color: $primary-color;
-        box-shadow: none;
-    }
-
-    .header ul {
-        align-items: center;
-    }
-
-    .header .icon {
-        display: none;
-    }
-
-    .header a {
-        color: $primary-white-color;
-        font-size: 1rem;
-    }
-
-    .header .home-link {
-        display: none;
-    }
-
-    .header .logo {
-        margin-right: auto;
-        display: block;
-    }
-
-    .logo a {
-        font-weight: 500;
-        font-size: 1.2rem;
-    }
-
-    .pet-link {
-        display: none;
-    }
 }

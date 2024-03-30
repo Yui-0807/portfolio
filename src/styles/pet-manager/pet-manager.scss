@@ -5,16 +5,16 @@
 }
 
 .offcanvas-header {
-    color: $primary-color ;
+    color: $primary-color;
 }
 
 .accordion-button {
-    color: $primary-color ;
-}
+    color: $primary-color;
 
-.accordion-button:not(.collapsed ) {
-    color: $primary-color ;
-    background-color: $secondary-light-gray-color ;
+    &:not(.collapsed) {
+        color: $primary-color;
+        background-color: $secondary-light-gray-color;
+    }
 }
 
 .options label {
@@ -37,39 +37,39 @@ input[type="radio"] {
     align-items: center;
     padding: 5px 20px 5px 40px;
     border-radius: 20px;
+
+    &:hover {
+        background: $secondary-light-gray-color;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #bababa;
+        outline: 0px solid $secondary-pink-color;
+        transition: 0.4s;
+    }
 }
 
-.value:hover {
-    background: $secondary-light-gray-color ;
-}
-
-.value::before {
-    content: "";
-    position: absolute;
-    left: 15px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #bababa;
-    outline: 0px solid $secondary-pink-color ;
-    transition: 0.4s;
-}
-
-input[type="radio"]:checked~.value {
-    color: $primary-white-color ;
+input[type="radio"]:checked ~ .value {
+    color: $primary-white-color;
     border-width: 5px;
-    background: $secondary-pink-color ;
+    background: $secondary-pink-color;
     transition: 0.4s;
 }
 
-input[type="radio"]:checked~.value::before {
+input[type="radio"]:checked ~ .value::before {
     outline-width: 5px;
-    background: $primary-white-color ;
+    background: $primary-white-color;
 }
 
 .checked {
-    background-color: $secondary-light-pink-color ;
-    border-radius: $large-button-border-radius ;
+    background-color: $secondary-light-pink-color;
+    border-radius: $large-button-border-radius;
 }
 
 .options p {
@@ -84,42 +84,37 @@ input[type="radio"]:checked~.value::before {
 .options img,
 .step-two img {
     width: 150px;
-}
 
-.step-two img {
-    margin: 2rem 0;
+    &:last-of-type {
+        margin: 2rem 0;
+    }
 }
 
 .pet-info {
     margin: 1.5rem 0;
     padding-bottom: 1rem;
-    border: 1px solid $secondary-light-gray-color ;
-    border-radius: $large-button-border-radius ;
+    border: 1px solid $secondary-light-gray-color;
+    border-radius: $large-button-border-radius;
     display: flex;
     flex-direction: column;
     align-items: start;
     color: #004574;
-}
 
-.pet-info span {
-    font-weight: 600;
+    span {
+        font-weight: 600;
+    }
 }
 
 .css-gavykb-MuiChip-root {
     font-family: 'Lexend', sans-serif;
-    ;
-    background-color: $primary-white-color ;
-    color: $primary-color ;
-}
-
-.css-gavykb-MuiChip-root {
-    color: $primary-color ;
+    background-color: $primary-white-color;
+    color: $primary-color;
 }
 
 .selected {
-    background-color: $primary-color ;
-    border-radius: $large-button-border-radius  $large-button-border-radius  0 0;
-    color: $primary-white-color ;
+    background-color: $primary-color;
+    border-radius: $large-button-border-radius $large-button-border-radius 0 0;
+    color: $primary-white-color;
     width: 100%;
     margin: 0;
     padding: .5rem 1rem;
@@ -133,12 +128,43 @@ input[type="radio"]:checked~.value::before {
     display: flex;
     gap: max(10%, 1rem);
     margin: 1rem 0;
+
+    button {
+        width: 150px;
+    }
 }
 
-.pet-btns button {
-    width: 150px;
-}
 
-.feed-btn {
-    /* margin-right: .5rem; */
+// .nav-pet-btn.desktop {
+//     display: none;
+// }
+
+@media (min-width: 768px)  {
+    // .nav-pet-btn.mobile {
+    //     display: none;
+    // }
+    
+
+    .MuiBadge-root.css-1c32n2y-MuiBadge-root {
+        padding: 1.2rem;
+    }
+
+    .nav-pet-btn.desktop {
+        z-index: 99;
+        display: block;
+        position: fixed;
+        bottom: 11.7rem;
+        right: 1.3rem;
+        padding: 0rem;
+        background-color: $surface-color ;
+        color: $primary-color ;
+        border-radius: 20px 20px 0 20px;
+        /* top-left, top-right, bottom-right, bottom-left */
+        clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - 20px));
+
+    }
+
+    .nav-pet-btn .icon-label {
+        display: none;
+    }
 }

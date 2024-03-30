@@ -98,7 +98,7 @@ const PetManager = () => {
   const showBadge = hunger < 6 || happiness < 6;
 
   return (
-    <div className='sidebar-right'>
+    <>
 
       <PetButton onClick={handleButtonClick} showBadge={showBadge} />
       <Offcanvas show={showPopup} onHide={handleClosePopup} placement='end'>
@@ -159,7 +159,7 @@ const PetManager = () => {
 
         </Offcanvas.Body>
       </Offcanvas>
-    </div>
+    </>
   );
 };
 

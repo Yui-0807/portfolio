@@ -1,135 +1,103 @@
 @import '../default/variables.scss';
+
 .footer {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: .6rem;
-}
 
-.footer p {
-    font-size: min(.9rem, 1rem);
-    color: $primary-white-color ;
-    margin: 0;
-}
+    p {
+        font-size: min(.9rem, 1rem);
+        color: $primary-white-color;
+        margin: 0;
+    }
 
-.footer nav {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.footer .logo {
-    display: none;
-}
-
-
-.footer .right {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    /* justify-content: space-evenly; */
-}
-
-.footer .icon-label {
-    display: none;
-}
-
-.footer svg {
-    height: 40px;
-    width: 1.5rem;
-}
-
-@media (min-width: 576px) {
-    /* .footer nav {
+    nav {
         display: flex;
         align-items: center;
-    } */
+        margin: 0;
+        width: 100%;
+        justify-content: space-between;
 
-    /* .footer .left {
-        display: block;
-        width: fit-content;
-        margin-right: auto;
-    } */
+        .logo {
+            display: none;
+        }
 
-    /* .footer .logo {
-        display: block;
-    } */
+        .right {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
 
-    /* .footer .logo a {
-        color: #f2f2f2;
-        line-height: 1;
-        font-weight: 500;
-        font-size: 1.2rem;
-         font-size: max(1.2rem, 1.8rem); 
-    } */
+            .icon-label {
+                display: none;
+            }
 
-    /* .footer .right { */
-    /* flex-direction: column; */
-    /* align-items: start; */
-    /* margin-left: auto; */
-    /* width: fit-content; */
-    /* gap: .3rem; */
-    /* } */
-
-    /* .footer li {
-        width: fit-content;
-    } */
-
-    /* .footer svg {
-        height: 30px;
-    } */
-
-    /* .footer .icon-label {
-        display: inline-block;
-        margin-left: 1rem;
-        font-size: min(.9rem, 1rem);
-        cursor: pointer;
-    } */
-}
-
-@media (min-width: 768px) {
-    .footer nav {
-        display: flex;
-        align-items: start;
+            svg {
+                height: 40px;
+                width: 1.5rem;
+            }
+        }
     }
 
-    .footer .left {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+    @media (min-width: 576px) {
+        nav {
+            .logo {
+                display: block;
+
+                a {
+                    color: #f2f2f2;
+                    font-weight: 500;
+                    font-size: 1.2rem;
+                    // font-size: max(1.2rem, 1.8rem); 
+                }
+            }
+
+            .right {
+                // flex-direction: column;
+                // align-items: start;
+                // margin-left: auto;
+                // width: fit-content;
+                // gap: .3rem;
+            }
+        }
     }
 
-    .footer .logo {
-        display: block;
-        margin-bottom: auto;
-    }
+    @media (min-width: 768px) {
+        nav {
+            display: flex;
+            align-items: start;
 
-    .footer .logo a {
-        color: #f2f2f2;
-        font-weight: 500;
-    }
+            .left {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
 
-    .footer .right {
-        flex-direction: column;
-        width: fit-content;
-        gap: .3rem;
-    }
+            .logo {
+                display: block;
+                margin-bottom: auto;
+            }
 
-    .footer li {
-        width: fit-content;
-    }
-
-    .footer svg {
-        height: 30px;
-    }
-
-    .footer .icon-label {
-        display: inline-block;
-        margin-left: 1rem;
-        font-size: min(.9rem, 1rem);
-        cursor: pointer;
+            .right {
+                flex-direction: column;
+                width: fit-content;
+                gap: .3rem;
+                li {
+                    width: fit-content;
+                }
+    
+                svg {
+                    height: 30px;
+                }
+    
+                .icon-label {
+                    display: inline-block;
+                    margin-left: 1rem;
+                    font-size: min(.9rem, 1rem);
+                    cursor: pointer;
+                }
+            } 
+        }
     }
 }
