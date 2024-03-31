@@ -92,6 +92,7 @@ const About = ({ restBase, restDataPage }) => {
                         {restDataPage.map(data => (
                             <div className="gallery-images">{data.acf.other_things_i_enjoy.map(image => (
                                 <img key={image} src={getMedia(image)} alt={getMediaAlt(image)} />
+                                
                             ))}</div>
                         ))}
                     </section>

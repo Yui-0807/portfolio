@@ -56,69 +56,93 @@ const SingleProjectPage = ({ restBase }) => {
 
     return (
         <>
-          {isLoaded ?
-          <>
-            {Object.keys(restData).length > 0 &&
-                <main className="single-project">
-                    <h1>{restData.title.rendered}</h1>
-                    <div className="single-project-banner">
-                        <img
-                            key={restData.acf.banner_image}
-                            src={getMedia(restData.acf.banner_image)}
-                            alt={getMediaAlt(restData.acf.banner_image)}
-                        />
-                        {/* <Skeleton variant="rounded" animation="wave" width={514} height={240}/> */}
-                        <div className="single-project-buttons">
-                            <div><a href={restData.acf.live_site}>Live Site</a></div>
-                            <div><a href={restData.acf.github}>GitHub</a></div>
-                        </div>
-                    </div>
+            {isLoaded ?
+                <>
+                    {Object.keys(restData).length > 0 &&
+                        <main className="single-project">
+                            <h1>{restData.title.rendered}</h1>
+                            <div className="single-project-banner">
+                                <img
+                                    key={restData.acf.banner_image}
+                                    src={getMedia(restData.acf.banner_image)}
+                                    alt={getMediaAlt(restData.acf.banner_image)}
+                                />
+                                {/* <Skeleton variant="rounded" animation="wave" width={514} height={240}/> */}
+                                <div className="single-project-buttons">
+                                    <div><a href={restData.acf.live_site}>Live Site</a></div>
+                                    <div><a href={restData.acf.github}>GitHub</a></div>
+                                </div>
+                            </div>
 
-                    <div className="single-project-toolkit">
-                        <span>Toolkit</span>
-                        <ul>
-                            {restData._embedded['wp:term'] && restData._embedded['wp:term'].map(termArray => (
-                                termArray
-                                    .filter(term => term.taxonomy === 'category')
-                                    .map(category => (
-                                        <li key={category.id}>{category.name}</li>
-                                    ))
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="single-project-container">
-                        <nav className="single-project-nav">
-                            <ul>
-                                <li><HashLink to="/projects/:id#overview" scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>1<span>Overview</span></HashLink></li>
-                                <li><HashLink to="/projects/:id#highlights" scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>2<span>Highlights</span></HashLink></li>
-                                <li><HashLink to="/projects/:id#insights" scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>3<span>Insights</span></HashLink></li>
-                            </ul>
-                        </nav>
-                        <div className="single-project-content">
-                            <section className="single-project-overview">
-                                <h2 id="overview">Overview</h2>
-                                <p>{restData.acf.overview}</p>
-                            </section>
-                            <section className="single-project-highlights">
-                                <h2 id="highlights">Highlights</h2>
-                                {restData.acf.highlights.map(highlight => (
-                                    <div className="highlight-item">
-                                        <img key={highlight.highlight_image}
-                                            src={getMedia(highlight.highlight_image)}
-                                            alt={getMediaAlt(highlight.highlight_image)} />
-                                        <p>{highlight.highlight_content}</p>
-                                    </div>
-                                ))}
-                            </section>
-                            <section className="single-project-insights">
-                                <h2 id="insights">Insights</h2>
-                                <p>{restData.acf.insights}</p>
-                            </section>
-                        </div>
-                    </div>
-                </main>}
-            <ProjectCards restBase={restBase} id={restData.id} />
-            </> : <Spinner animation="border" />} 
+                            <div className="single-project-toolkit">
+                                <span>Toolkit</span>
+                                <ul>
+                                    {restData._embedded['wp:term'] && restData._embedded['wp:term'].map(termArray => (
+                                        termArray
+                                            .filter(term => term.taxonomy === 'category')
+                                            .map(category => (
+                                                <li key={category.id}>{category.name}</li>
+                                            ))
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="single-project-container">
+                                <nav className="single-project-nav">
+                                    <ul>
+                                        <li>
+                                            <HashLink
+                                                to={`/projects/${id}#overview`}
+                                                scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+                                                <div className="single-project-nav-item">
+                                                <span>Overview</span>
+                                                </div>
+                                            </HashLink>
+                                        </li>
+                                        <li>
+                                            <HashLink
+                                                to={`/projects/${id}#highlights`}
+                                                scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+                                                <div className="single-project-nav-item">
+                                                <span>Highlights</span>
+                                                </div>
+                                            </HashLink>
+                                        </li>
+                                        <li>
+                                            <HashLink
+                                                to={`/projects/${id}#insights`}
+                                                scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+                                                <div className="single-project-nav-item">
+                                                <span>Insights</span>
+                                                </div>
+                                            </HashLink>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div className="single-project-content">
+                                    <section id="overview" className="single-project-overview">
+                                        <h2 >Overview</h2>
+                                        <p>{restData.acf.overview}</p>
+                                    </section>
+                                    <section id="highlights" className="single-project-highlights">
+                                        <h2 >Highlights</h2>
+                                        {restData.acf.highlights.map(highlight => (
+                                            <div className="highlight-item">
+                                                <img key={highlight.highlight_image}
+                                                    src={getMedia(highlight.highlight_image)}
+                                                    alt={getMediaAlt(highlight.highlight_image)} />
+                                                <p>{highlight.highlight_content}</p>
+                                            </div>
+                                        ))}
+                                    </section>
+                                    <section id="insights" className="single-project-insights">
+                                        <h2 >Insights</h2>
+                                        <p>{restData.acf.insights}</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </main>}
+                    <ProjectCards restBase={restBase} id={restData.id} />
+                </> : <Spinner animation="border" />}
         </>
     )
 }

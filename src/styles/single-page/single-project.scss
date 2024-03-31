@@ -14,27 +14,60 @@
             position: sticky;
             top: 9rem;
         }
-
-        li {
-            padding: .7rem;
+        li{
+            margin: 1rem 0;
+        }
+        &-item {
+            display: flex;
+            gap: .3rem;
+            align-items: center;
+            justify-content: end;
         }
 
-        a {
-            width: 1rem;
-            height: 1rem;
-            padding: .7rem;
-            color: $primary-white-color;
-            background-color: $primary-color;
+        &-item::after {
+            content: url(../../images/flower-green.svg);
+            width: 1.5rem;
+            height: 1.5rem;
         }
 
         span {
-            display: none;
+            visibility: hidden;
+            color: $primary-color;
+            margin: .2rem;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: $primary-color;
+            margin: .2rem;
+
+            span {
+                visibility: visible;
+            }
+            .single-project-nav-item::after {
+                animation: spin 6s infinite linear;
+            }
+        }
+
+        /* Define the keyframes for spinning */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
     }
 }
 
 .single-project {
     h1 {
+        font-size: 2rem;
         padding: .7rem;
         text-align: center;
         background-image: url(../../images/single-h1-bg.svg);
@@ -47,9 +80,9 @@
         display: block;
         width: 100vw;
         max-width: 100vw;
-        margin: calc(50% - 50vw);
+        margin: 0 calc(50% - 50vw);
         position: relative;
-        z-index: -99;
+        z-index: 1;
 
         img {
             height: 25rem;
@@ -58,12 +91,16 @@
     }
 
     &-buttons {
+        max-width: $xl;
+        margin: 0 auto;
+        padding-left: 1rem;
         display: flex;
         flex-wrap: wrap;
         gap: .7rem;
         position: absolute;
         bottom: 2rem;
-        left: 1rem;
+        left: 0;
+        right: 0;
 
         div {
             width: fit-content;
@@ -80,7 +117,9 @@
     }
 
     &-toolkit {
-        margin: 3rem .5rem;
+        margin: 3rem auto;
+        max-width: 830px;
+        padding:0 .8rem;
 
         span {
             font-size: 1.2rem;
@@ -106,9 +145,13 @@
             }
         }
     }
+    .single-project-content{
+        padding: 0 .8rem;
+    }
 
     &-overview {
         margin: 3rem .5rem;
+        
     }
 
     &-highlights {
@@ -152,7 +195,7 @@
         &-highlights {
             gap: 1.5rem;
 
-            .highlight-item  {
+            .highlight-item {
                 display: flex;
                 align-items: center;
                 max-width: 630px;
@@ -172,14 +215,22 @@
     @media (min-width: 768px) {
         &-container {
             display: flex;
-            gap: 2rem;
+            gap:max(10%,2rem);
+            justify-content: center;
         }
-
+        &-buttons {
+            left: 0;
+            
+            @media (min-width:$xl) {
+                padding-left: 0;
+            }
+        }
         &-content {
             // flex-basis: 70%;
         }
 
         &-h1 {
+            font-size: 2.8rem;
             margin: 0 calc(50% - 50vw);
         }
 

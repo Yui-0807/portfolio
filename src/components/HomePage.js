@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
 import scrollDownGif from "../images/scroll-down.gif";
+// import homeBannerMask from "../images/home-banner-bg-400.svg";
 import Spinner from 'react-bootstrap/Spinner';
 
 // Diamond component
@@ -33,40 +34,36 @@ const HomePage = ({ restBase }) => {
         fetchData()
     }, [restPathPage])
 
-      // Number of diamonds to generate
-      const wDiamonds = Math.ceil(window.innerWidth / 72);
-      const hDiamonds = Math.ceil(window.innerHeight / 72);
+    // Number of diamonds to generate
+    const wDiamonds = Math.ceil(window.innerWidth / 72);
+    const hDiamonds = Math.ceil(window.innerHeight / 72);
 
-      // Function to generate diamonds
-  const generateDiamonds = () => {
-    const diamonds = [];
-    for (let i = 0; i < wDiamonds; i++) {
-        for (let j = 0; j<hDiamonds; j++){
-            const key = `${i}_${j}`;
-            diamonds.push(<Diamond key={key} />);
+    // Function to generate diamonds
+    const generateDiamonds = () => {
+        const diamonds = [];
+        for (let i = 0; i < wDiamonds; i++) {
+            for (let j = 0; j < hDiamonds; j++) {
+                const key = `${i}_${j}`;
+                diamonds.push(<Diamond key={key} />);
+            }
         }
-    }
-    return diamonds;
-  };
+        return diamonds;
+    };
     return (
         <>
             {isLoaded ?
                 <>
                     <section className="home-banner">
-                        {/* <div className="test-container"> */}
-                            {/* <div className="diamonds"> */}
-                            {/* {generateDiamonds()} */}
-                            {/* </div> */}
-                        {/* </div> */}
+                        <div class="home-banner-mask"></div>
                         <div className="banner-content">
-                        {restDataPage.map(item => (
-                            <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
-                            </h1>
-                        ))}
-                        {restDataPage.map(item => (
-                            <p key={item.id} className="entry-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }}>
-                            </p>
-                        ))}
+                            {restDataPage.map(item => (
+                                <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
+                                </h1>
+                            ))}
+                            {restDataPage.map(item => (
+                                <p key={item.id} className="entry-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }}>
+                                </p>
+                            ))}
                         </div>
                         {/* <img src={scrollDownGif} alt="scroll-down" className="scroll-down"/> */}
 
