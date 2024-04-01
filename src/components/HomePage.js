@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
-import scrollDownGif from "../images/scroll-down.gif";
+// import scrollDownGif from "../images/Asset-25.gif";
 // import homeBannerMask from "../images/home-banner-bg-400.svg";
 import Spinner from 'react-bootstrap/Spinner';
 

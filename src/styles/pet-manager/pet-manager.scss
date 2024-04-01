@@ -55,14 +55,14 @@ input[type="radio"] {
     }
 }
 
-input[type="radio"]:checked ~ .value {
+input[type="radio"]:checked~.value {
     color: $primary-white-color;
     border-width: 5px;
     background: $secondary-pink-color;
     transition: 0.4s;
 }
 
-input[type="radio"]:checked ~ .value::before {
+input[type="radio"]:checked~.value::before {
     outline-width: 5px;
     background: $primary-white-color;
 }
@@ -88,6 +88,38 @@ input[type="radio"]:checked ~ .value::before {
     &:last-of-type {
         margin: 2rem 0;
     }
+}
+.checked-pet{
+    width: 100%;
+    height: 150px;
+    margin: 2rem 1rem;
+}
+.checked-pet.Dog {
+    background-image: url(../../images/dog-pet.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.checked-pet.Dog:hover {
+    background-image: url(../../images/dog-pet-hover.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+.checked-pet.Cat {
+    background-image: url(../../images/cat-pet.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+.checked-pet.Cat:hover {
+    background-image: url(../../images/cat-pet-hover.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+
 }
 
 .pet-info {
@@ -133,17 +165,20 @@ input[type="radio"]:checked ~ .value::before {
         width: 150px;
     }
 }
+.accordion-header {
+    font-family: 'Lexend', sans-serif;
+}
 
 
 .nav-pet-btn.desktop {
     display: none;
 }
 
-@media (min-width: 768px)  {
+@media (min-width: 768px) {
     // .nav-pet-btn.mobile {
     //     display: none;
     // }
-    
+
 
     .MuiBadge-root.css-1c32n2y-MuiBadge-root {
         // padding: 1.2rem;
@@ -163,6 +198,7 @@ input[type="radio"]:checked ~ .value::before {
         clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - 20px));
         cursor: pointer;
     }
+
     .nav-pet-btn.desktop .pet-manager-btn {
         padding: 1.6rem;
     }

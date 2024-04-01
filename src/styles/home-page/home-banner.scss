@@ -6,7 +6,7 @@
     // background-image: url(../../images/home-banner-bg.svg);
     // background-repeat: no-repeat;
     // background-size: cover;
-    
+
     position: relative;
 
     .home-banner-mask {
@@ -16,7 +16,7 @@
         left: 0;
         position: absolute;
         background-color: #5b5b5b24;
-        background-image: url(../../images/home-banner-bg-400.svg);
+        background-image: url(../../images/home-banner-bg-900.svg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position-y: 5%;
@@ -55,30 +55,29 @@
         @media (min-width: 645px) {
             top: 24rem;
         }
+        @media (min-width: 860px) {
+            top: 26rem;
+        }
 
     }
 
     @media (min-width: $md) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
         background-color: $background-color;
 
-
         .banner-content {
-            grid-column: 1/2;
-           text-align: left;
-           bottom: 50%;
-           .entry-title {
-            font-size: 3.7rem;
-           }
-           .entry-content {
-            font-size: 1.5rem;
-           }
+            bottom: 50%;
+
+            .entry-title {
+                font-size: 3.7rem;
+            }
+
+            .entry-content {
+                font-size: 1.5rem;
+            }
         }
 
         .home-banner-mask {
-           background-position: 0 0;
-            grid-column: 2/3;
+            background-position-y: 6%;
         }
     }
 }

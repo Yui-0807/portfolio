@@ -5,13 +5,15 @@ import Accordion from 'react-bootstrap/Accordion';
 
 import catImage from "../images/cat.svg";
 import dogImage from "../images/dog.svg";
+import checkedCatImage from "../images/cat-checked.svg";
+import checkedDogImage from "../images/dog-checked.svg";
 
 const steps = [
   {
     label: 'Select Your Pet',
     options: [
-      { label: 'Dog', image: dogImage },
-      { label: 'Cat', image: catImage }
+      { label: 'Dog', image: dogImage, checkedImage: checkedDogImage },
+      { label: 'Cat', image: catImage, checkedImage: checkedCatImage }
     ],
     description: `Choose whether you want to manage a dog or a cat.`,
   },
@@ -73,7 +75,7 @@ const PetManager = () => {
     // Check if dog's hunger stays at 0 for over 5 seconds
     if (hunger === 0) {
       decreaseHappinessInterval = setInterval(() => {
-        
+
         setHappiness(prevHappiness => Math.max(prevHappiness - 1, 0));
       }, 5000); // 30 seconds :30000
     } else {
@@ -111,7 +113,7 @@ const PetManager = () => {
               <p>{currentStep.description}</p>
               <div className='options'>
                 {currentStep.options.map((option, index) => (
-                  <label key={index} className={selectedOption === option.label ? 'checked' : ''}>
+                  <label key={index} className={selectedOption === option.label ? `${option.label} checked` : ''}>
                     <p><input
                       type="radio"
                       value={option.label}
@@ -119,7 +121,7 @@ const PetManager = () => {
                       onChange={() => setSelectedOption(option.label)}
                     />
                       <span className='value'>{option.label}</span></p>
-                    <img src={option.image} alt={option.label} />
+                      <img src={selectedOption === option.label ? option.checkedImage : option.image} alt={option.label} />
                   </label>
                 ))}
               </div>
@@ -144,7 +146,8 @@ const PetManager = () => {
                 <button className='feed-btn' onClick={feed}>Feed</button>
                 <button className='pet-btn' onClick={pet}>Pet</button>
               </section>
-              <img src={steps[0].options.find(option => option.label === selectedOption)?.image} alt={selectedOption} />
+              <div 
+              className={`checked-pet ${selectedOption}`}/>
             </div>
           )}
 
