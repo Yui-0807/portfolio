@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
-import homeBannerCat from "../images/home-banner-bg-900.svg";
+
 import homeBannerGrids from "../images/home-banner-grids.svg";
 import homeBannerRightStairs from "../images/home-banner-right-stairs.svg";
 import homeBannerLeftStairs from "../images/home-banner-left-stairs.svg";
 import homeBannerwall from "../images/home-banner-wall.svg";
 import Spinner from 'react-bootstrap/Spinner';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { X } from "@mui/icons-material";
 
-// Diamond component
-const Diamond = () => {
-    return (
-        <div className="diamond">
-            <div className="circle"></div>
-        </div>
-    );
-};
 
 const HomePage = ({ restBase }) => {
 
     const restPathPage = restBase + 'pages/'
     const [restDataPage, setDataPage] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
+    const ref = useRef()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,32 +32,60 @@ const HomePage = ({ restBase }) => {
         fetchData()
     }, [restPathPage])
 
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start start", " end start"],
+        layoutEffect: false // Add this option
+    })
+
+    const lBg = useTransform(
+        scrollYProgress, [0, 1], ["0", "-20%"]
+    )
+    const rBg = useTransform(
+        scrollYProgress, [0, 0.5], ["0", "100%"]
+    )
+    const xText = useTransform(
+        scrollYProgress, [0, 1], ["2%", "-50%"]
+    )
+    const bannerScale = useTransform(
+        scrollYProgress, [0, 0.12], [1, 10]
+    );
+
     return (
         <>
             {isLoaded ?
                 <>
-                    <section className="home-banner">
-                        <div class="home-banner-mask">
-                            {/* <img src={homeBannerCat} alt="home banner cat" className="home-banner-cat"/> */}
-                            <img src={homeBannerwall} alt="home banner wall" className="home-banner-wall"/>
-                            <img src={homeBannerLeftStairs} alt="home banner left stairs" className="home-banner-left-stairs"/>
-                            <img src={homeBannerRightStairs} alt="home banner right stairs" className="home-banner-right-stairs"/>
-                            <img src={homeBannerGrids} alt="home banner grids" className="home-banner-grids"/>
-                        </div>
-                        <div className="banner-content">
-                            {restDataPage.map(item => (
-                                <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
-                                </h1>
-                            ))}
-                            {restDataPage.map(item => (
-                                <p key={item.id} className="entry-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }}>
-                                </p>
-                            ))}
-                        </div>
-                        {/* <img src={scrollDownGif} alt="scroll-down" className="scroll-down"/> */}
-                    </section>
+                    <section className="home-banner"
+                        ref={ref}
+                    >
+                        <div className="home-banner-mask">
 
-                    <Projects restBase={restBase} />
+                            <motion.img
+                                style={{ scale: bannerScale }}
+                                src={homeBannerwall} alt="home banner wall" className="home-banner-wall" />
+                            <motion.img style={{ x: lBg }}
+                                src={homeBannerLeftStairs} alt="home banner left stairs" className="home-banner-left-stairs" />
+                            <motion.img style={{ x: rBg }}
+                                src={homeBannerRightStairs} alt="home banner right stairs" className="home-banner-right-stairs" />
+                            <motion.div
+                                style={{ x: xText }}
+                                className="banner-content">
+                                {restDataPage.map(item => (
+                                    <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
+                                    </h1>
+                                ))}
+                                {restDataPage.map(item => (
+                                    <p key={item.id} className="entry-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }}>
+                                    </p>
+                                ))}
+                            </motion.div>
+                        </div>
+
+                    </section>
+                   
+                        <Projects restBase={restBase} />
+                    
+
                     <About restBase={restBase} restDataPage={restDataPage} />
                 </> : <Spinner animation="border" />}
         </>

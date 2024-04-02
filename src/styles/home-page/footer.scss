@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     gap: .6rem;
+    // scroll-snap-align: center;
 
     p {
         font-size: min(.9rem, 1rem);
@@ -53,13 +54,6 @@
                 }
             }
 
-            .right {
-                // flex-direction: column;
-                // align-items: start;
-                // margin-left: auto;
-                // width: fit-content;
-                // gap: .3rem;
-            }
         }
     }
 

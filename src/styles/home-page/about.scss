@@ -2,6 +2,8 @@
 
 .about {
     padding: 0.5rem;
+    // height: 100vh;
+    
 
     h2 {
         font-size: 1.5rem;
@@ -10,6 +12,7 @@
 
     &-content,
     .skill-container {
+        scroll-snap-align: center;
         height: 40vh;
     }
 
@@ -41,6 +44,9 @@
             border: 1px solid $secondary-blue-color;
             border-radius: $small-button-border-radius;
         }
+    }
+    .other-gallery {
+        scroll-snap-align: center;
     }
 }
 

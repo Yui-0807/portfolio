@@ -4,7 +4,9 @@ import PetsIcon from '@mui/icons-material/Pets';
 
 const PetButton = ({ onClick, showBadge }) => {
   return (
-    <div className='pet-manager-btn' onClick={onClick}>
+    <div
+      
+      className='pet-manager-btn' onClick={onClick}>
       <Badge
         color="error"
         variant={showBadge ? "dot" : ""}

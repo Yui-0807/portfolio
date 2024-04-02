@@ -1,4 +1,8 @@
 @import 'variables.scss';
+html {
+    // scroll-snap-type: y mandatory;
+    // scroll-behavior: smooth;
+}
 body {
     font-family: 'Lexend', sans-serif;
     font-size: 1rem;
@@ -159,7 +163,12 @@ button {
     }
     
 }
+@media (min-width:$md) {
+    .main-content {
+        margin-top: 52.8px;
+    }
 
+}
 
 
 
