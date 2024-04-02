@@ -13,12 +13,12 @@ const Footer = () => {
                 </div>
                 <div className='right'>
                     <li>
-                        <a href="linkedin.com/in/mariehuangdev" target="_blank" rel="noopener noreferrer"><LinkedInIcon />
+                        <a href="https://linkedin.com/in/mariehuangdev" target="_blank" ><LinkedInIcon />
                             <span className="icon-label">linkedin.com/in/mariehuangdev</span>
                         </a>
                     </li>
                     <li>
-                        <a href="github.com/Yui-0807" target="_blank" rel="noopener noreferrer"><GitHubIcon />
+                        <a href="https://github.com/Yui-0807" target="_blank"><GitHubIcon />
                             <span className="icon-label">github.com/Yui-0807</span>
                         </a>
                     </li>

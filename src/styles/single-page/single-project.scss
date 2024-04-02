@@ -150,11 +150,13 @@
     }
 
     &-overview {
+        padding-top: 52.8px;
         margin: 3rem .5rem;
         
     }
 
     &-highlights {
+        padding-top: 52.8px;
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -184,6 +186,7 @@
     }
 
     &-insights {
+        padding-top: 52.8px;
         margin: 3rem .5rem;
     }
 
@@ -224,9 +227,6 @@
             @media (min-width:$xl) {
                 padding-left: 0;
             }
-        }
-        &-content {
-            // flex-basis: 70%;
         }
 
         &-h1 {

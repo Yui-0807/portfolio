@@ -5,7 +5,7 @@ html {
 }
 body {
     font-family: 'Lexend', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 300;
     color: $primary-gray-color;
     margin: 0;
@@ -170,5 +170,13 @@ button {
 
 }
 
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 30%;
+    height: 100%;
+}
 
 

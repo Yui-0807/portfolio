@@ -6,7 +6,6 @@
     flex-direction: column;
     align-items: center;
     gap: .6rem;
-    // scroll-snap-align: center;
 
     p {
         font-size: min(.9rem, 1rem);
@@ -40,6 +39,16 @@
             }
         }
     }
+    a{
+        padding: 2px;
+    }
+    a:hover {
+        color: $primary-white-color;
+        border-bottom: $primary-white-color 1px solid;
+    }
+    a:active, a:visited {
+        color: $primary-white-color;
+    }
 
     @media (min-width: 576px) {
         nav {
@@ -50,7 +59,6 @@
                     color: #f2f2f2;
                     font-weight: 500;
                     font-size: 1.2rem;
-                    // font-size: max(1.2rem, 1.8rem); 
                 }
             }
 

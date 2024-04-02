@@ -2,9 +2,8 @@
 
 .about {
     padding: 0.5rem;
-    // height: 100vh;
+    padding-top: 52.8px;
     
-
     h2 {
         font-size: 1.5rem;
         margin: 1.5rem 0;
@@ -62,28 +61,10 @@
         width: 100%;
         max-width: 300px;
         height: 60%;
-        // border: .5rem solid black;
         object-fit: cover;
         border-radius: $large-button-border-radius;
         background-color: $surface-color;
         box-shadow: 0 4px 6px $secondary-light-gray-color;
     }
-    @media (min-width: 44.375em) {
-        // display: grid;
-        // grid-template-columns: repeat(2, 1fr);
-        // grid-template-rows: repeat(3, 1fr);
-
-        // img {
-        //     height: max(30%, 100%);
-        // }
-
-        // img:first-child {
-        //     grid-row: 1/3;
-        // }
-
-        // img:last-child {
-        //     grid-column: 1/3;
-        //     grid-row: 3/4;
-        // }
-    }
+    
 }

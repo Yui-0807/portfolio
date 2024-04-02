@@ -1,18 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router"
-import SingleProjectPage from "./SingleProjectPage"
-import { motion, useScroll, useTransform } from "framer-motion";
 import Spinner from 'react-bootstrap/Spinner';
 
 
 const Projects = ({ restBase }) => {
 
-
     const restPathPosts = restBase + 'posts?_embed'
     const navigate = useNavigate()
     const [restDataPost, setDataPost] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
-    const refs = useRef([null, null, null, null])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,31 +24,15 @@ const Projects = ({ restBase }) => {
         fetchData()
     }, [restPathPosts])
 
-    const { scrollYProgress } = useScroll({
-        // target: refs,
-        // offset: ["0 1", " 1.33 1"],
-        // layoutEffect: false // Add this option
-    })
-
-    const lBg = useTransform(
-        scrollYProgress, [0, 1], ["0", "-20%"]
-    )
-    const rBg = useTransform(
-        scrollYProgress, [0, 0.25], ["100%", "0%"]
-    )
-
+    
     return (
         <>
             {isLoaded ?
                 <div className="projects">
-                    <h2 id="projects">Projects</h2>
+                    <h2 id="projects">Works</h2>
                     {restDataPost.map((post, index) => (
-                        <motion.section
-                            ref={el => refs.current[index] = el}
+                        <section
                             key={post.id}
-                            animate={{ opacity: 1 }} // Animate opacity to 1 for fade-in effect
-                            initial={{ opacity: 0 }} // Set initial opacity to 0
-                            transition={{ duration: 0.5 }} // Set transition duration
                             className={`project ${index % 2 === 0 ? '' : 'reverse-columns'}`}
                             onClick={() => {
                                 navigate(`/projects/${post.id}`)
@@ -77,7 +57,7 @@ const Projects = ({ restBase }) => {
                                     navigate(`/projects/${post.id}`)
                                 }}>Read More</div>
                             </div>
-                        </motion.section>
+                        </section>
                     ))}
                 </div>
                 : <Spinner animation="border" />}

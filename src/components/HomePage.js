@@ -1,14 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
-
-import homeBannerGrids from "../images/home-banner-grids.svg";
+import loading from "../images/cat-pet-hover.gif"
 import homeBannerRightStairs from "../images/home-banner-right-stairs.svg";
 import homeBannerLeftStairs from "../images/home-banner-left-stairs.svg";
 import homeBannerwall from "../images/home-banner-wall.svg";
 import Spinner from 'react-bootstrap/Spinner';
 import { motion, useScroll, useTransform } from "framer-motion";
-import { X } from "@mui/icons-material";
 
 
 const HomePage = ({ restBase }) => {
@@ -87,7 +85,7 @@ const HomePage = ({ restBase }) => {
                     
 
                     <About restBase={restBase} restDataPage={restDataPage} />
-                </> : <Spinner animation="border" />}
+                </> : <img className="loading" src={loading} />}
         </>
     )
 }

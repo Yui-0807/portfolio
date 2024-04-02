@@ -178,14 +178,6 @@ input[type="radio"]:checked~.value::before {
 }
 
 @media (min-width: 768px) {
-    // .nav-pet-btn.mobile {
-    //     display: none;
-    // }
-
-
-    .MuiBadge-root.css-1c32n2y-MuiBadge-root {
-        // padding: 1.2rem;
-    }
 
     .nav-pet-btn.desktop {
         z-index: 99;
