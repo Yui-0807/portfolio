@@ -7,13 +7,7 @@ const PetButton = ({ onClick, showBadge }) => {
     <div className='pet-manager-btn' onClick={onClick}>
       <Badge
         color="error"
-        // badgeContent={''}
         variant={showBadge ? "dot" : ""}
-        
-      // anchorOrigin={{
-      //   vertical: 'top',
-      //   horizontal: 'left',
-      // }}
       >
         <PetsIcon />
         <span className='pet-icon-label'>Pet</span>

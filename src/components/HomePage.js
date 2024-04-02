@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
-// import scrollDownGif from "../images/Asset-25.gif";
-// import homeBannerMask from "../images/home-banner-bg-400.svg";
+import homeBannerCat from "../images/home-banner-bg-900.svg";
+import homeBannerGrids from "../images/home-banner-grids.svg";
+import homeBannerRightStairs from "../images/home-banner-right-stairs.svg";
+import homeBannerLeftStairs from "../images/home-banner-left-stairs.svg";
+import homeBannerwall from "../images/home-banner-wall.svg";
 import Spinner from 'react-bootstrap/Spinner';
 
 // Diamond component
@@ -34,27 +37,18 @@ const HomePage = ({ restBase }) => {
         fetchData()
     }, [restPathPage])
 
-    // Number of diamonds to generate
-    const wDiamonds = Math.ceil(window.innerWidth / 72);
-    const hDiamonds = Math.ceil(window.innerHeight / 72);
-
-    // Function to generate diamonds
-    const generateDiamonds = () => {
-        const diamonds = [];
-        for (let i = 0; i < wDiamonds; i++) {
-            for (let j = 0; j < hDiamonds; j++) {
-                const key = `${i}_${j}`;
-                diamonds.push(<Diamond key={key} />);
-            }
-        }
-        return diamonds;
-    };
     return (
         <>
             {isLoaded ?
                 <>
                     <section className="home-banner">
-                        <div class="home-banner-mask"></div>
+                        <div class="home-banner-mask">
+                            {/* <img src={homeBannerCat} alt="home banner cat" className="home-banner-cat"/> */}
+                            <img src={homeBannerwall} alt="home banner wall" className="home-banner-wall"/>
+                            <img src={homeBannerLeftStairs} alt="home banner left stairs" className="home-banner-left-stairs"/>
+                            <img src={homeBannerRightStairs} alt="home banner right stairs" className="home-banner-right-stairs"/>
+                            <img src={homeBannerGrids} alt="home banner grids" className="home-banner-grids"/>
+                        </div>
                         <div className="banner-content">
                             {restDataPage.map(item => (
                                 <h1 key={item.id} className="entry-title" dangerouslySetInnerHTML={{ __html: item.title.rendered }}>
@@ -66,9 +60,6 @@ const HomePage = ({ restBase }) => {
                             ))}
                         </div>
                         {/* <img src={scrollDownGif} alt="scroll-down" className="scroll-down"/> */}
-
-
-
                     </section>
 
                     <Projects restBase={restBase} />
