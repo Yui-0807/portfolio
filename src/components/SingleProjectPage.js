@@ -68,8 +68,8 @@ const SingleProjectPage = ({ restBase }) => {
                                     alt={getMediaAlt(restData.acf.banner_image)}
                                 />
                                 <div className="single-project-buttons">
-                                    <div><a href={restData.acf.live_site}>Live Site</a></div>
-                                    <div><a href={restData.acf.github}>GitHub</a></div>
+                                    <div><a href={restData.acf.live_site} target="_blank">Live Site</a></div>
+                                    <div><a href={restData.acf.github} target="_blank">GitHub</a></div>
                                 </div>
                             </div>
 
@@ -126,9 +126,10 @@ const SingleProjectPage = ({ restBase }) => {
                                         <h2 >Highlights</h2>
                                         {restData.acf.highlights.map(highlight => (
                                             <div className="highlight-item">
-                                                <img key={highlight.highlight_image}
+                                                <span key={highlight.highlight_subtitle}>{highlight.highlight_subtitle}</span>
+                                                {highlight.highlight_image !== "" ? <img key={highlight.highlight_image}
                                                     src={getMedia(highlight.highlight_image)}
-                                                    alt={getMediaAlt(highlight.highlight_image)} />
+                                                    alt={getMediaAlt(highlight.highlight_image)} /> : ""}
                                                 <p>{highlight.highlight_content}</p>
                                             </div>
                                         ))}
