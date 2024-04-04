@@ -11,9 +11,7 @@
     z-index: 10;
     backdrop-filter: blur(3px);
     transition: all 0.3s ease-in-out;
-    /* display: none; */
-    // scroll-snap-align: center;
-
+    
     ul {
         margin: 0;
         padding: 0;
@@ -40,10 +38,6 @@
             font-size: 0.75rem;
         }
 
-        a:visited {
-            /* color: $primary-color ; */
-        }
-
         .pet-link {
             padding: .75rem;
         }
@@ -65,7 +59,6 @@
         margin: 0;
         border-radius: unset;
         background-color: unset;
-        // backdrop-filter: blur(3px);
         box-shadow: none;
 
         .header-nav {
