@@ -63,7 +63,7 @@ const About = ({ restBase, restDataPage }) => {
             {isLoaded ?
                 <article className='about' id="about">
                     <section className="about-content">
-                        <h2>About me</h2>
+                        <h2>Hi there! I'm Marie </h2>
                         {restDataPage.map(data => (
                             <p >{data.acf.who_i_am}</p>
                         ))}
