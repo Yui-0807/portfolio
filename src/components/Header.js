@@ -14,9 +14,24 @@ const Header = () => {
                     <li className="logo">
                         <HashLink to="/#" >Marie Huang</HashLink>
                     </li>
-                    <li><HashLink to="/#about" scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}><AboutIcon className='icon' />About</HashLink></li>
-                    <li><HashLink to="/#projects" scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}><ProjectIcon className='icon' />Works</HashLink></li>
-                    <li className="pet-link"><div className='nav-pet-btn mobile'><PetManager /></div></li>
+                    <li><HashLink
+                        to="/#about"
+                        // scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                        >
+                        <AboutIcon className='icon' />About
+                    </HashLink>
+                    </li>
+                    <li><HashLink
+                        to="/#projects"
+                        // scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}
+                        >
+                        <ProjectIcon className='icon' />Works
+                    </HashLink>
+                    </li>
+                    <li
+                        className="pet-link">
+                        <div className='nav-pet-btn mobile'><PetManager /></div>
+                    </li>
                 </ul>
             </nav>
         </header>

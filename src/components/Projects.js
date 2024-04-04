@@ -47,8 +47,7 @@ const Projects = ({ restBase }) => {
                                 )}
                                 <div class="overlay"></div>
                                 <div class="content-details fadeIn-top">
-                                    <h3>This is a title</h3>
-                                    <p>This is a short description</p>
+                                    <h3>{post.title.rendered}</h3>
                                 </div>
                             </div>
                             <div className="project-info">

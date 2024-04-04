@@ -1,11 +1,7 @@
 @import 'variables.scss';
-html {
-    // scroll-snap-type: y mandatory;
-    // scroll-behavior: smooth;
-}
 body {
     font-family: 'Lexend', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 300;
     color: $primary-gray-color;
     margin: 0;
@@ -67,19 +63,8 @@ a:active {
     color: $primary-color;
 }
 
-a:visited {
-    /* color: $primary-white-color ; */
-}
-
-a:hover {}
-
-a:focus {}
-
-a:active {}
-
 img {
     width: 100%;
-    /* border: #F38D9B 2px solid; */
 }
 
 button {
@@ -101,15 +86,9 @@ button {
 }
 
 .header {
-    /* background-color: $primary-color ;
-    color: $primary-white-color ; */
     background-color: $surface-color;
     color: $primary-color;
     box-shadow: 0 6px 10px $secondary-light-gray-color;
-}
-
-.main-content {
-    /* padding: .5rem; */
 }
 
 .footer {
@@ -117,12 +96,6 @@ button {
     color: $primary-white-color ;
 
 }
-
-// @media (min-width: $sm)  {
-//     .container {
-//         max-width: unset;
-//     }
-// }
 
 /* Responsive Design */
 @media (min-width: $sm)  {
@@ -159,7 +132,6 @@ button {
 
     .footer {
         grid-area: footer;
-        /* padding: .5rem; */
     }
     
 }
@@ -174,9 +146,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    width: 30%;
     height: 100%;
+    width: 30%;
+    margin: 0 auto;
 }
-
 

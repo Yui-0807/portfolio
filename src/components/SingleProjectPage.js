@@ -3,6 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 import { useNavigate, useParams } from "react-router"
 import ProjectCards from "./ProjectCards"
 import loading from "../images/cat-pet-hover.gif"
+import Skeleton from '@mui/material/Skeleton';
 
 
 const SingleProjectPage = ({ restBase }) => {
@@ -54,22 +55,32 @@ const SingleProjectPage = ({ restBase }) => {
         return image ? image.alt_text : "";
     };
 
+    const scrollToTop = () => {
+            window.scrollTo({
+                top: 0
+            });
+        };
+        scrollToTop();
+
     return (
         <>
             {isLoaded ?
                 <>
                     {Object.keys(restData).length > 0 &&
                         <main className="single-project">
-                            <h1>{restData.title.rendered}</h1>
+                            <h1 id="title">{restData.title.rendered}</h1>
                             <div className="single-project-banner">
-                                <img
+                                {restData.acf.banner_image ? <img
                                     key={restData.acf.banner_image}
                                     src={getMedia(restData.acf.banner_image)}
                                     alt={getMediaAlt(restData.acf.banner_image)}
-                                />
+                                /> :<Skeleton variant="rectangular" height={480}/>
+                                 }
+                                
+                                <div class="overlay"></div>
                                 <div className="single-project-buttons">
-                                    <div><a href={restData.acf.live_site} target="_blank">Live Site</a></div>
-                                    <div><a href={restData.acf.github} target="_blank">GitHub</a></div>
+                                    <a href={restData.acf.live_site} target="_blank">Live Site</a>
+                                    <a href={restData.acf.github} target="_blank">GitHub</a>
                                 </div>
                             </div>
 
@@ -91,7 +102,8 @@ const SingleProjectPage = ({ restBase }) => {
                                         <li>
                                             <HashLink
                                                 to={`/projects/${id}#overview`}
-                                                scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+                                                scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}
+                                                >
                                                 <div className="single-project-nav-item">
                                                 <span>Overview</span>
                                                 </div>
@@ -100,7 +112,8 @@ const SingleProjectPage = ({ restBase }) => {
                                         <li>
                                             <HashLink
                                                 to={`/projects/${id}#highlights`}
-                                                scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+                                                scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}
+                                                >
                                                 <div className="single-project-nav-item">
                                                 <span>Highlights</span>
                                                 </div>
@@ -109,7 +122,8 @@ const SingleProjectPage = ({ restBase }) => {
                                         <li>
                                             <HashLink
                                                 to={`/projects/${id}#insights`}
-                                                scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+                                                scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}
+                                                >
                                                 <div className="single-project-nav-item">
                                                 <span>Insights</span>
                                                 </div>
@@ -142,7 +156,7 @@ const SingleProjectPage = ({ restBase }) => {
                             </div>
                         </main>}
                     <ProjectCards restBase={restBase} id={restData.id} />
-                </> : <img className="loading" src={loading} />}
+                </> : <div className="loading"><img  src={loading}/> </div>}
         </>
     )
 }

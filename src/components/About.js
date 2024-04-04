@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const About = ({ restBase, restDataPage }) => {
 
-    const restPathMedia = restBase + 'media'
+    const restPathMedia = restBase + 'media?parent=25'
 
     const [filteredCategories, setFilteredCategories] = useState([]);
     const [media, setMedia] = useState([]);
@@ -90,12 +90,15 @@ const About = ({ restBase, restDataPage }) => {
                     <section className="other-gallery">
                         <h2>Other things I enjoy...</h2>
                         {restDataPage.map(data => (
-                            <div className="gallery-images">{data.acf.other_things_i_enjoy.map(image => (
-                                <img key={image} src={getMedia(image)} alt={getMediaAlt(image)} />
-                                
-                            ))}</div>
-                        ))}
-                    </section>
+                            <div className="gallery-images">{data.acf.other_things_i_enjoy.map(item => (
+                                <article className="gallery-item">
+                                    <p key={item.image_description}>{item.image_description}</p>
+                                    <img key={item.gallery_image} src={getMedia(item.gallery_image)} alt={getMediaAlt(item.gallery_image)} />
+                                    </article>
+                              ))}
+                                </div>
+                            ))}
+                            </section>
                 </article>
                 : <Spinner animation="border" />}
         </>

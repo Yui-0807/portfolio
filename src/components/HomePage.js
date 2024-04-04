@@ -9,6 +9,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { motion, useScroll, useTransform } from "framer-motion";
 
 
+
 const HomePage = ({ restBase }) => {
 
     const restPathPage = restBase + 'pages/'
@@ -80,12 +81,11 @@ const HomePage = ({ restBase }) => {
                         </div>
 
                     </section>
-                   
-                        <Projects restBase={restBase} />
-                    
 
+                    <Projects restBase={restBase} />
                     <About restBase={restBase} restDataPage={restDataPage} />
-                </> : <img className="loading" src={loading} />}
+                </> : <div className="loading"><img  src={loading}/> </div>}
+           
         </>
     )
 }
