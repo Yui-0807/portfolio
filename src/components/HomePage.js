@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react"
 import About from "./About"
 import Projects from "./Projects"
-import loading from "../images/cat-pet-hover.gif"
+
 import homeBannerRightStairs from "../images/home-banner-right-stairs.svg";
 import homeBannerLeftStairs from "../images/home-banner-left-stairs.svg";
 import homeBannerwall from "../images/home-banner-wall.svg";
 import Spinner from 'react-bootstrap/Spinner';
 import { motion, useScroll, useTransform } from "framer-motion";
+import Loading from "./Loading";
 
 
 
@@ -84,7 +85,7 @@ const HomePage = ({ restBase }) => {
 
                     <Projects restBase={restBase} />
                     <About restBase={restBase} restDataPage={restDataPage} />
-                </> : <div className="loading"><img  src={loading}/> </div>}
+                </> : <Loading />}
            
         </>
     )

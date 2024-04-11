@@ -18,6 +18,16 @@
     justify-content: center;
     align-items: start;
 }
+.carousel-indicators{
+
+    bottom: -3rem;
+}
+.carousel-indicators [data-bs-target] {
+    background-color: gray;
+}
+.carousel-indicators .active {
+    background-color: $primary-color;
+}
 
 .project-card {
     background-color: $surface-color;

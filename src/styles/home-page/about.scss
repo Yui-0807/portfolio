@@ -9,10 +9,8 @@
         margin: 1.5rem 0;
     }
 
-    &-content,
-    .skill-container {
-        scroll-snap-align: center;
-        height: 35vh;
+    &-content,.skill-container {
+        margin-bottom: 4rem;
     }
 
     .skill-btn-container {
@@ -62,17 +60,20 @@
 
     .skill-list {
         margin: 1rem 0;
-        padding: 0;
+        padding: 1rem;
         list-style: none;
         display: flex;
         flex-wrap: wrap;
         gap: .5rem;
+        background-color: $surface-color;
+        border-radius: $large-button-border-radius;
 
         li {
+
             padding: .3rem .5rem;
             width: fit-content;
-            color: $secondary-blue-color;
             border: 1px solid $secondary-blue-color;
+            color: $secondary-blue-color;
             border-radius: $small-button-border-radius;
         }
     }

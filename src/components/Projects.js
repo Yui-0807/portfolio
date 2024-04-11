@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router"
 import Spinner from 'react-bootstrap/Spinner';
-
+import Skeleton from '@mui/material/Skeleton';
+import Loading from "./Loading";
 
 const Projects = ({ restBase }) => {
 
@@ -38,13 +39,13 @@ const Projects = ({ restBase }) => {
                                 navigate(`/projects/${post.id}`)
                             }}>
                             <div class="image-container">
-                                {post.featured_media && post._embedded['wp:featuredmedia'][0] && (
+                                {post.featured_media && post._embedded['wp:featuredmedia'][0] ?
                                     <img
                                         src={post._embedded['wp:featuredmedia'][0].source_url}
                                         alt={post.title.rendered}
                                         className="featured-image"
-                                    />
-                                )}
+                                    /> : <Skeleton variant="rectangular" height={480}/>
+                                }
                                 <div class="overlay"></div>
                                 <div class="content-details fadeIn-top">
                                     <h3>{post.title.rendered}</h3>
@@ -59,7 +60,7 @@ const Projects = ({ restBase }) => {
                         </section>
                     ))}
                 </div>
-                : <Spinner animation="border" />}
+                : <Loading />}
         </>
     )
 }

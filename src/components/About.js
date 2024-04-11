@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Spinner from 'react-bootstrap/Spinner';
+import Loading from "./Loading";
 
 
 
@@ -100,7 +101,7 @@ const About = ({ restBase, restDataPage }) => {
                             ))}
                             </section>
                 </article>
-                : <Spinner animation="border" />}
+                : <Loading />}
         </>
     )
 }

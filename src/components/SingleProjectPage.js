@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router"
 import ProjectCards from "./ProjectCards"
 import loading from "../images/cat-pet-hover.gif"
 import Skeleton from '@mui/material/Skeleton';
+import Loading from "./Loading";
 
 
 const SingleProjectPage = ({ restBase }) => {
@@ -102,7 +103,6 @@ const SingleProjectPage = ({ restBase }) => {
                                         <li>
                                             <HashLink
                                                 to={`/projects/${id}#overview`}
-                                                scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}
                                                 >
                                                 <div className="single-project-nav-item">
                                                 <span>Overview</span>
@@ -112,7 +112,7 @@ const SingleProjectPage = ({ restBase }) => {
                                         <li>
                                             <HashLink
                                                 to={`/projects/${id}#highlights`}
-                                                scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}
+                                                
                                                 >
                                                 <div className="single-project-nav-item">
                                                 <span>Highlights</span>
@@ -122,7 +122,6 @@ const SingleProjectPage = ({ restBase }) => {
                                         <li>
                                             <HashLink
                                                 to={`/projects/${id}#insights`}
-                                                scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'start' })}
                                                 >
                                                 <div className="single-project-nav-item">
                                                 <span>Insights</span>
@@ -156,7 +155,7 @@ const SingleProjectPage = ({ restBase }) => {
                             </div>
                         </main>}
                     <ProjectCards restBase={restBase} id={restData.id} />
-                </> : <div className="loading"><img  src={loading}/> </div>}
+                </> : <Loading />}
         </>
     )
 }

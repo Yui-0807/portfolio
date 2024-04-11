@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from "react"
-import { useNavigate } from "react-router"
-import { Link } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
 import Spinner from 'react-bootstrap/Spinner';
+import Carousel from 'react-bootstrap/Carousel';
+import Skeleton from '@mui/material/Skeleton';
 
 const fetchProjectImage = async (imageId) => {
     try {
@@ -65,33 +65,38 @@ const ProjectCards = ({ restBase, id }) => {
                     <div>
                         <h3>See more projects...</h3>
                         <div className="project-cards">
-                            {restData.map(project => (
-                                id !== project.id && (
-                                    project.acf.project_card_image !== "" && (
-                                        <HashLink
-                                            key={project.id}
-                                            className="project-card"
-                                            to={`/projects/${project.id}`}
-                                        >
-                                            {projectImages[project.id] && (
-                                                <img src={projectImages[project.id].source_url} alt={projectImages[project.id].alt_text} />
-                                            )}
-                                            <span className="project-card-title" key={project.id}>{project.title.rendered}</span>
-                                            <div className="project-card-toolkit">
-                                                <ul>
-                                                    {project._embedded['wp:term'] && project._embedded['wp:term'].map(termArray => (
-                                                        termArray
-                                                            .filter(term => term.taxonomy === 'category')
-                                                            .map(category => (
-                                                                <li key={category.id}>{category.name}</li>
-                                                            ))
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </HashLink>
+                            
+                                {restData.map(project => (
+                                    id !== project.id && (
+                                        project.acf.project_card_image !== "" && (
+                                            
+                                            <HashLink
+                                                key={project.id}
+                                                className="project-card"
+                                                to={`/projects/${project.id}`}
+                                            >
+                                                {projectImages[project.id] ?
+                                                    <img src={projectImages[project.id].source_url} alt={projectImages[project.id].alt_text} /> :
+                                                    <Skeleton variant="rectangular" height={160} />
+                                                }
+                                                <span className="project-card-title" key={project.id}>{project.title.rendered}</span>
+                                                <div className="project-card-toolkit">
+                                                    <ul>
+                                                        {project._embedded['wp:term'] && project._embedded['wp:term'].map(termArray => (
+                                                            termArray
+                                                                .filter(term => term.taxonomy === 'category')
+                                                                .map(category => (
+                                                                    <li key={category.id}>{category.name}</li>
+                                                                ))
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </HashLink>
+                                            
+                                        )
                                     )
-                                )
-                            ))}
+                                ))}
+                            
                         </div>
                     </div>
                 </section>
