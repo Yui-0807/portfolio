@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
+
 import Skeleton from '@mui/material/Skeleton';
 
-const Toolkits = ({ restBase, id}) => {
-    
+const Toolkits = ({ restBase, id }) => {
+
     const restPathPost = restBase + `categories?post=${id}`
-    
+
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
@@ -29,11 +30,14 @@ const Toolkits = ({ restBase, id}) => {
                     <span>Toolkit</span>
                     <ul>
                         {restData.map(category => (
-                                    <li key={category.id}>{category.name}</li>
-                                ))
+                            <li key={category.id}>{category.name}</li>
+                        ))
                         }
                     </ul>
-                </div> : <Skeleton variant="rectangular" height={480} />
+                </div> :
+                <div className="single-project-toolkit">
+                    <Skeleton variant="text" width={300} height={50} />
+                </div>
             }
         </>
     )

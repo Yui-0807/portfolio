@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink, Link, BrowserRouter } 
 import HomePage from './components/HomePage.js';
 import SingleProjectPage from './components/SingleProjectPage.js';
 import Header from './components/Header';
-import About from './components/About';
+import Test from './components/Test';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import SidebarRight from './components/SidebarRight';
@@ -35,6 +35,7 @@ function App() {
         <section className='main-content'>
           <Routes>
             <Route path="/" element={<HomePage restBase={restBase}  />} />
+            <Route path="/test" element={<Test restBase={restBase} />} />
             <Route path="/projects" element={<Projects restBase={restBase} />} />
             <Route path="/projects/:id" element={<SingleProjectPage restBase={restBase} featuredImage={featuredImage} />} />
           </Routes>

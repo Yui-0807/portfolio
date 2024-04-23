@@ -84,7 +84,7 @@ const HomePage = ({ restBase }) => {
                     </section>
 
                     <Projects restBase={restBase} />
-                    <About restBase={restBase} restDataPage={restDataPage} />
+                    <About restBase={restBase} />
                 </> : <Loading />}
            
         </>

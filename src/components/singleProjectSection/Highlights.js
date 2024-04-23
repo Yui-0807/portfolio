@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import Loading from "../Loading";
 
 
 const Highlights = ({ restBase, id }) => {
@@ -48,13 +49,12 @@ const Highlights = ({ restBase, id }) => {
                         </div>
                     ))}
                 </section>) : (
-                <Box sx={{ width: 580 }}>
-                    <Skeleton />
-                    <Skeleton variant="rectangular" width={580} height={300} />
-                    <Skeleton animation="wave" />
-                    <Skeleton />
-                    <Skeleton />
-                </Box>
+               
+                <section id="highlights" className="single-project-highlights">
+                    <p>loading-highlights</p> 
+                    <Loading />
+                </section>
+                
             )
             }
 

@@ -54,7 +54,7 @@
             position: relative;
         }
 
-        .image-container img {
+        .image-container video {
             width: 100%;
             height: auto;
         }
@@ -126,7 +126,7 @@
 
         }
 
-        img {
+        video {
             object-fit: cover;
             border-radius: $large-button-border-radius;
         }
@@ -208,7 +208,7 @@
             grid-template-columns: minmax(1fr, 720px) 1fr;
             grid-template-rows: repeat(3, 1fr);
 
-            .image-container img {
+            .image-container video {
                 max-width: 720px;
             }
 
@@ -263,7 +263,7 @@
     }
 
     @media (min-width:$lg) {
-        .project .image-container img {
+        .project .image-container video {
             width: 100%;
             max-width: 720px;
         }

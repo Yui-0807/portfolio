@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router"
-import Spinner from 'react-bootstrap/Spinner';
+import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
-import Loading from "./Loading";
+
 
 const Projects = ({ restBase }) => {
 
-    const restPathPosts = restBase + 'posts?_embed'
+    const restPathPosts = restBase + 'posts?embed&acf_format=standard'
     const navigate = useNavigate()
     const [restDataPost, setDataPost] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
@@ -25,7 +25,7 @@ const Projects = ({ restBase }) => {
         fetchData()
     }, [restPathPosts])
 
-    
+
     return (
         <>
             {isLoaded ?
@@ -39,12 +39,16 @@ const Projects = ({ restBase }) => {
                                 navigate(`/projects/${post.id}`)
                             }}>
                             <div class="image-container">
-                                {post.featured_media && post._embedded['wp:featuredmedia'][0] ?
-                                    <img
-                                        src={post._embedded['wp:featuredmedia'][0].source_url}
-                                        alt={post.title.rendered}
-                                        className="featured-image"
-                                    /> : <Skeleton variant="rectangular" height={480}/>
+
+                                {post.acf.screen_video ?
+                                    <video
+                                        src={post.acf.screen_video}
+                                        title={post.title.rendered}
+                                        autoPlay
+                                        muted
+                                        loop
+                                        loading="lazy"
+                                    /> : <Skeleton variant="rectangular" height={480} />
                                 }
                                 <div class="overlay"></div>
                                 <div class="content-details fadeIn-top">
@@ -57,10 +61,18 @@ const Projects = ({ restBase }) => {
                                     navigate(`/projects/${post.id}`)
                                 }}>Read More</div>
                             </div>
+
+
                         </section>
                     ))}
                 </div>
-                : <Loading />}
+                :
+                <Box >
+                    <Skeleton variant="rectangular" height={300} />
+                    <Skeleton animation="wave" />
+                    <Skeleton animation="wave" />
+                </Box>
+            }
         </>
     )
 }

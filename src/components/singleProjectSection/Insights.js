@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import Loading from "../Loading";
 
 const Insights = ({ restBase, id }) => {
     const restPathPost = restBase + `posts/${id}`;
@@ -30,11 +31,11 @@ const Insights = ({ restBase, id }) => {
                 <p>{restData.acf.insights}</p>
             </section>
             ) : (
-                <Box sx={{ width: 580 }}>
-                    <Skeleton />
-                    <Skeleton animation="wave" />
-                    <Skeleton animation={false} />
-                </Box>
+                <section id="insights" className="single-project-insights">
+                 <Loading />
+                <p>loading-insights</p>
+                </section>
+                
             )}
         </>
     );
