@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Loading from "./Loading";
 
@@ -49,7 +48,7 @@ const Projects = ({ restBase }) => {
                                         muted
                                         loop
                                         loading="lazy"
-                                    /> : <Skeleton variant="rectangular" height={390} />
+                                    /> : <Skeleton variant="rectangular" width='100%' height={390} />
                                 }
                                 <div class="overlay"></div>
                                 <div class="content-details fadeIn-top">
@@ -62,8 +61,6 @@ const Projects = ({ restBase }) => {
                                     navigate(`/projects/${post.id}`)
                                 }}>Read More</div>
                             </div>
-
-
                         </section>
                     ))}
                 </div>

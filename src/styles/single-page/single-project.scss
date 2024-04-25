@@ -79,6 +79,10 @@
         background-size: cover;
         color: $primary-white-color;
         margin: 0 calc(50% - 50vw);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     &-banner {
@@ -88,6 +92,7 @@
         margin: 0 calc(50% - 50vw);
         position: relative;
         z-index: 1;
+        background-color: $background-color;
 
         img {
             height: 30rem;
@@ -109,12 +114,13 @@
     }
 
     &-buttons {
-        max-width: 830px;
+        width: 100%;
         margin: 3rem auto;
         margin-top: 3rem;
         display: flex;
         flex-wrap: wrap;
         gap: .7rem;
+        padding-left: 1.125rem;
 
         a {
             width: fit-content;
@@ -158,8 +164,10 @@
 
     &-toolkit {
         margin: 3rem auto;
-        max-width: 830px;
-
+        // max-width: 830px;
+        padding-left: 1.125rem;
+        width: fit-content;
+        display: inline-block;
         span {
             font-size: 1.2rem;
             font-weight: 500;
@@ -280,6 +288,17 @@
 
         &-banner {
             margin: 0 calc(50% - 50vw);
+        }
+        &-buttons-toolkits {
+            display: flex;
+            justify-content: space-between;
+            max-width: 830px;
+            margin: 0 auto;
+            align-items: end;
+
+            .single-project-buttons {
+                width: 300px;
+            }
         }
     }
 }

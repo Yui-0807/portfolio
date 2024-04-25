@@ -31,7 +31,6 @@ const Overview = ({ restBase, id }) => {
             ) : (
                 <section id="overview" className="single-project-overview">
                 <Loading />
-                <p>loading-overview</p>
                 </section>
                 
             )}

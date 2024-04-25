@@ -21,7 +21,7 @@
         padding-top: 52.8px;
         backdrop-filter: blur (3px);
         text-shadow: 1px 1px $primary-gray-color;
-
+        width: 50%;
         @media (min-width: 31.25em) {
             font-size: max(30%, 3rem);
         }
@@ -37,6 +37,7 @@
         padding-top: 0;
 
         h2 {
+            
             font-size: max(30%, 3.6rem);
         }
     }
@@ -50,6 +51,7 @@
         flex-wrap: wrap;
         justify-content: center;
 
+        
         .image-container {
             position: relative;
         }
@@ -207,6 +209,14 @@
             display: grid;
             grid-template-columns: minmax(1fr, 720px) 1fr;
             grid-template-rows: repeat(3, 1fr);
+
+            &.css-0 {
+                span:first-child{
+                    grid-row: 2/3;
+                    width: 800px;
+                }
+
+            }
 
             .image-container video {
                 max-width: 720px;
