@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
 import Loading from "../Loading";
 
 
@@ -40,6 +38,7 @@ const Highlights = ({ restBase, id }) => {
                                     sizes="(max-width: 600px) 150px, (max-width: 1024px) 300px, 1024px"
                                     src={highlight.highlight_image.sizes?.large || ''}
                                     alt={highlight.highlight_content}
+                                    loading="lazy" 
                                 />
                             ) : (
                                 ""
@@ -51,7 +50,6 @@ const Highlights = ({ restBase, id }) => {
                 </section>) : (
                
                 <section id="highlights" className="single-project-highlights">
-                    <p>loading-highlights</p> 
                     <Loading />
                 </section>
                 

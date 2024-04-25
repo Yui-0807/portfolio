@@ -109,24 +109,20 @@
     }
 
     &-buttons {
-        max-width: $xl;
-        margin: 0 auto;
-        padding-left: 1rem;
+        max-width: 830px;
+        margin: 3rem auto;
+        margin-top: 3rem;
         display: flex;
         flex-wrap: wrap;
         gap: .7rem;
-        position: absolute;
-        bottom: 2rem;
-        left: 0;
-        right: 0;
 
         a {
             width: fit-content;
             padding: .5rem;
             border: 1px solid $primary-color;
-            background-color: $surface-color;
+            background-color: $primary-color;
             border-radius: $small-button-border-radius;
-            color: $primary-color;
+            color: $primary-white-color;
         }
 
         a:hover {
@@ -163,7 +159,6 @@
     &-toolkit {
         margin: 3rem auto;
         max-width: 830px;
-        padding: 0 .8rem;
 
         span {
             font-size: 1.2rem;
@@ -276,14 +271,6 @@
             display: flex;
             gap: max(10%, 2rem);
             justify-content: center;
-        }
-
-        &-buttons {
-            left: 0;
-
-            @media (min-width:$xl) {
-                padding-left: 0;
-            }
         }
 
         &-h1 {

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router"
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import Loading from "./Loading";
 
 
 const Projects = ({ restBase }) => {
@@ -48,7 +49,7 @@ const Projects = ({ restBase }) => {
                                         muted
                                         loop
                                         loading="lazy"
-                                    /> : <Skeleton variant="rectangular" height={480} />
+                                    /> : <Skeleton variant="rectangular" height={390} />
                                 }
                                 <div class="overlay"></div>
                                 <div class="content-details fadeIn-top">
@@ -67,11 +68,7 @@ const Projects = ({ restBase }) => {
                     ))}
                 </div>
                 :
-                <Box >
-                    <Skeleton variant="rectangular" height={300} />
-                    <Skeleton animation="wave" />
-                    <Skeleton animation="wave" />
-                </Box>
+                <Loading section={'projects'}/>
             }
         </>
     )

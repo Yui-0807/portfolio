@@ -1,6 +1,5 @@
 import { React, useEffect, useState } from "react"
 import { HashLink } from "react-router-hash-link"
-import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Loading from "./Loading";
 
@@ -76,7 +75,11 @@ const ProjectCards = ({ restBase, id }) => {
                                             to={`/projects/${project.id}`}
                                         >
                                             {projectImages[project.id] ?
-                                                <img src={projectImages[project.id].source_url} alt={projectImages[project.id].alt_text} /> :
+                                                <img
+                                                    src={projectImages[project.id].source_url}
+                                                    alt={projectImages[project.id].alt_text}
+                                                    loading="lazy"
+                                                /> :
                                                 <Skeleton variant="rectangular" height={160} />
                                             }
                                             <span className="project-card-title" key={project.id}>{project.title.rendered}</span>
@@ -92,7 +95,6 @@ const ProjectCards = ({ restBase, id }) => {
                                                 </ul>
                                             </div>
                                         </HashLink>
-
                                     )
                                 )
                             ))}
@@ -101,7 +103,7 @@ const ProjectCards = ({ restBase, id }) => {
                     </div>
                 </section>
                 :
-                <Loading section={'project-card'}/>
+                <Loading section={'project-card'} />
             }
         </>
     )

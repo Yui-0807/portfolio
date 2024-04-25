@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
 import Loading from "../Loading";
 
 const Insights = ({ restBase, id }) => {
@@ -33,7 +31,6 @@ const Insights = ({ restBase, id }) => {
             ) : (
                 <section id="insights" className="single-project-insights">
                  <Loading />
-                <p>loading-insights</p>
                 </section>
                 
             )}

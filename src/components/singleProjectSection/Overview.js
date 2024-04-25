@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
 import Loading from "../Loading";
 
 const Overview = ({ restBase, id }) => {
