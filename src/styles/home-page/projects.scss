@@ -50,7 +50,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
-
+        cursor: default;
         
         .image-container {
             position: relative;
@@ -230,6 +230,7 @@
                 padding: 0 2rem;
                 grid-column: 2/3;
                 grid-row: 2/3;
+                align-self: start;
                 max-width: 320px;
                 backdrop-filter: blur(3px);
             }

@@ -32,7 +32,6 @@ const Insights = ({ restBase, id }) => {
                 <section id="insights" className="single-project-insights">
                  <Loading />
                 </section>
-                
             )}
         </>
     );

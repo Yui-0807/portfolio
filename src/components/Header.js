@@ -3,6 +3,7 @@ import PetManager from './PetManager';
 import HomeIcon from '@mui/icons-material/Home';
 import AboutIcon from '@mui/icons-material/EmojiEmotions';
 import ProjectIcon from '@mui/icons-material/FolderCopy';
+import Link from '@mui/joy/Link';
 
 const Header = () => {
 
@@ -10,19 +11,31 @@ const Header = () => {
         <header className='header'>
             <nav className='header-nav'>
                 <ul>
-                    <li className="home-link"><HashLink to="/#" ><HomeIcon className='icon' />Home</HashLink></li>
+                    <li className="home-link">
+                        <Link
+                            underline='none'
+                            href='/'
+                        >
+                            <HomeIcon className='icon' />Home
+                        </Link>
+                    </li>
                     <li className="logo">
-                        <HashLink to="/#" >Marie Huang</HashLink>
+                        <Link
+                            underline='none'
+                            href='/'
+                        >
+                            Marie Huang
+                        </Link>
                     </li>
                     <li><HashLink
                         to="/#about"
-                        >
+                    >
                         <AboutIcon className='icon' />About
                     </HashLink>
                     </li>
                     <li><HashLink
                         to="/#projects"
-                        >
+                    >
                         <ProjectIcon className='icon' />Works
                     </HashLink>
                     </li>

@@ -7,6 +7,7 @@ import homeBannerwall from "../images/home-banner-wall.svg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Loading from "./Loading";
 
+
 const HomePage = ({ restBase }) => {
 
     const restPathPage = restBase + 'pages/'
@@ -81,8 +82,7 @@ const HomePage = ({ restBase }) => {
 
                     <Projects restBase={restBase} />
                     <About restBase={restBase} />
-                </> : <Loading section={"home"}/>}
-           
+                </> : <Loading section={"home"}/>}   
         </>
     )
 }

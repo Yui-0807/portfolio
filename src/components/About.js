@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react"
 import Loading from "./Loading";
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import { useMediaQuery } from '@mui/material';
+import Tabs from '@mui/joy/Tabs';
+import TabList from '@mui/joy/TabList';
+import Tab from '@mui/joy/Tab';
+import TabPanel from '@mui/joy/TabPanel';
 
 const About = ({ restBase }) => {
 
@@ -7,8 +15,25 @@ const About = ({ restBase }) => {
 
     const [restData, setData] = useState([])
     const [filteredCategories, setFilteredCategories] = useState([]);
-    const [filterCriterion, setFilterCriterion] = useState("Programming");
     const [isLoaded, setLoadStatus] = useState(false)
+    const [value, setValue] = useState(0);
+    
+        const handleChange = (event, newValue) => {
+            setValue(newValue);
+            switch (newValue) {
+                case 0:
+                    filterCategories("Programming");
+                    break;
+                case 1:
+                    filterCategories("Design");
+                    break;
+                case 2:
+                    filterCategories("CMS/E-commerce");
+                    break;
+                default:
+                    break;
+            }
+        };
 
     useEffect(() => {
         const fetchMedia = async () => {
@@ -33,9 +58,7 @@ const About = ({ restBase }) => {
             const response = await fetch(restPathCategories);
             if (response.ok) {
                 const data = await response.json();
-
                 setFilteredCategories(data);
-                setFilterCriterion(criterion);
             } else {
                 console.error("Failed to fetch categories data");
             }
@@ -43,6 +66,19 @@ const About = ({ restBase }) => {
         fetchCategories();
     }
 
+    const isSmallScreen = useMediaQuery('(max-width: 575px)');
+    const isMediumScreen = useMediaQuery('(min-width: 576px) and (max-width: 767px)');
+    const isLargeScreen = useMediaQuery('(min-width: 768px)');
+
+    let cols = 1;
+    
+    if (isSmallScreen) {
+        cols = 1;
+    } else if (isMediumScreen) {
+        cols = 2;
+    } else if (isLargeScreen) {
+        cols = 3;
+    }
 
     return (
         <>
@@ -55,37 +91,50 @@ const About = ({ restBase }) => {
 
                     <section className="skill-container">
                         <h2>Skills</h2>
-                        <div className="skill-btn-container">
-                            <button
-                                onClick={() => filterCategories("Programming")} className={filterCriterion === "Programming" ? "active" : ""} >Programming</button>
-                            <button
-                                onClick={() => filterCategories("Design")} className={filterCriterion === "Design" ? "active" : ""}>Design</button>
-                            <button
-                                onClick={() => filterCategories("CMS/E-commerce")} className={filterCriterion === "CMS/E-commerce" ? "active" : ""}>CMS/E-commerce</button>
-                        </div>
-                        <ul
-                            className='skill-list '>
-                            {filteredCategories.map(skills => (
-                                <li key={skills.id}>{skills.name}</li>
-                            ))}
-                        </ul>
+                        <Tabs
+                        className="skill-btn-container"
+                            aria-label='Basic tabs'
+                            sx={{ minWidth: 280, height: 160 }}
+                            value={value}
+                            onChange={handleChange}
+                        >
+                            <TabList>
+                                <Tab>Programming</Tab>
+                                <Tab>Design</Tab>
+                                <Tab>CMS/E-commerce</Tab>
+                            </TabList>
+
+                            <TabPanel className='skill-list' value={value}>
+                                {filteredCategories.map(skills => (
+                                    <li key={skills.id}>{skills.name}</li>
+                                ))}
+                            </TabPanel>
+                        </Tabs>
                     </section>
 
                     <section className="other-gallery">
                         <h2>Other things I enjoy...</h2>
-                        <div className="gallery-images">{restData.acf.other_things_i_enjoy.map(item => (
-                            <article className="gallery-item">
-                                <p key={item.image_description}>{item.image_description}</p>
-                                <img
-                                    key={item.gallery_image.id}
-                                    src={item.gallery_image.url}
-                                    alt={item.gallery_image.alt}
-                                    loading="lazy" />
-                            </article>
-                        ))}
-                        </div>
+                        <ImageList className="gallery-image" variant="masonry" cols={cols} gap={8}>
+                            {restData.acf.other_things_i_enjoy.map((item) => (
+                                <ImageListItem key={item.gallery_image.id}>
+                                    <img
+                                        srcSet={`${item.gallery_image.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                        src={`${item.gallery_image.url}?w=248&fit=crop&auto=format`}
+                                        alt={item.gallery_image.alt}
+                                        loading="lazy"
+                                    />
+                                    <ImageListItemBar
+                                        sx={{
+                                            background:'rgba(0,0,0,0.3) 70%'
+                                        }}
+                                        position="bottom"
+                                        title={item.image_description}
+                                    />
+                                </ImageListItem>
+                            ))}
+                        </ImageList>
                     </section>
-                </article>
+                </article >
                 :
                 <Loading section={'about'} />
             }

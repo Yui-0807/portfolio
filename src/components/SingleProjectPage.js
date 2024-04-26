@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import { HashLink } from 'react-router-hash-link';
 import { useParams } from "react-router"
 import ProjectCards from "./ProjectCards"
-
+import Link from '@mui/joy/Link';
 import Skeleton from '@mui/material/Skeleton';
-
 import Toolkits from "./singleProjectSection/Toolkits";
 import Overview from "./singleProjectSection/Overview";
 import Insights from "./singleProjectSection/Insights";
@@ -34,20 +32,13 @@ const SingleProjectPage = ({ restBase }) => {
         fetchData()
     }, [restPathPostACF])
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0
-        });
-    };
-    scrollToTop();
-
     return (
         <>
             {isLoaded ? (
                 <>
                     <main className="single-project">
                         <div className="single-project-banner">
-                        <h1 id="title">{restDataACF.title.rendered}</h1>
+                            <h1 id="title">{restDataACF.title.rendered}</h1>
                             {restDataACF.acf.banner_image ? <img
                                 key={restDataACF.acf.banner_image}
                                 src={restDataACF.acf.banner_image}
@@ -67,36 +58,38 @@ const SingleProjectPage = ({ restBase }) => {
                             <nav className="single-project-nav">
                                 <ul>
                                     <li>
-                                        <HashLink
-                                            to={`/projects/${id}#overview`}
+                                        <Link
+                                            href="#overview"
+                                            underline="none"
                                         >
                                             <div className="single-project-nav-item">
                                                 <span>Overview</span>
                                             </div>
-                                        </HashLink>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <HashLink
-                                            to={`/projects/${id}#highlights`}
+                                        <Link
+                                            href="#highlights"
+                                            underline="none"
                                         >
                                             <div className="single-project-nav-item">
                                                 <span>Highlights</span>
                                             </div>
-                                        </HashLink>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <HashLink
-                                            to={`/projects/${id}#insights`}
+                                        <Link
+                                            href="#insights"
+                                            underline="none"
                                         >
                                             <div className="single-project-nav-item">
                                                 <span>Insights</span>
                                             </div>
-                                        </HashLink>
+                                        </Link>
                                     </li>
                                 </ul>
                             </nav>
                             <div className="single-project-content">
-
                                 <Overview restBase={restBase} id={restDataACF.id} />
                                 <Highlights restBase={restBase} id={restDataACF.id} />
                                 <Insights restBase={restBase} id={restDataACF.id} />

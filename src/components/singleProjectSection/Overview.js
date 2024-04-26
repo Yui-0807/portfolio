@@ -31,8 +31,7 @@ const Overview = ({ restBase, id }) => {
             ) : (
                 <section id="overview" className="single-project-overview">
                 <Loading />
-                </section>
-                
+                </section>  
             )}
         </>
     );

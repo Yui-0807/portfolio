@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react"
-import { HashLink } from "react-router-hash-link"
 import Skeleton from '@mui/material/Skeleton';
 import Loading from "./Loading";
+import Link from '@mui/joy/Link';
 
 const fetchProjectImage = async (imageId) => {
     try {
@@ -69,10 +69,9 @@ const ProjectCards = ({ restBase, id }) => {
                                 id !== project.id && (
                                     project.acf.project_card_image !== "" && (
 
-                                        <HashLink
-                                            key={project.id}
-                                            className="project-card"
-                                            to={`/projects/${project.id}`}
+                                        <Link
+                                        className="project-card"
+                                        href={`/projects/${project.id}`}
                                         >
                                             {projectImages[project.id] ?
                                                 <img
@@ -94,7 +93,7 @@ const ProjectCards = ({ restBase, id }) => {
                                                     ))}
                                                 </ul>
                                             </div>
-                                        </HashLink>
+                                        </Link>
                                     )
                                 )
                             ))}

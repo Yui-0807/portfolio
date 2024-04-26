@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import Loading from "../Loading";
 
-
 const Highlights = ({ restBase, id }) => {
 
     const restPathPostACF = restBase + `posts/${id}?embed&acf_format=standard`
@@ -48,14 +47,11 @@ const Highlights = ({ restBase, id }) => {
                         </div>
                     ))}
                 </section>) : (
-               
                 <section id="highlights" className="single-project-highlights">
                     <Loading />
                 </section>
-                
             )
             }
-
         </>
     )
 }

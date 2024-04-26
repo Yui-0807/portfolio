@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
 import Skeleton from '@mui/material/Skeleton';
 import Loading from "./Loading";
-
+import Link from '@mui/joy/Link';
 
 const Projects = ({ restBase }) => {
 
@@ -32,12 +32,12 @@ const Projects = ({ restBase }) => {
                 <div className="projects">
                     <h2 id="projects">Works</h2>
                     {restDataPost.map((post, index) => (
-                        <section
+                        <Link
                             key={post.id}
+                            href={`/projects/${post.id}`}
+                            underline="none"
                             className={`project ${index % 2 === 0 ? '' : 'reverse-columns'}`}
-                            onClick={() => {
-                                navigate(`/projects/${post.id}`)
-                            }}>
+                        >
                             <div class="image-container">
 
                                 {post.acf.screen_video ?
@@ -57,15 +57,16 @@ const Projects = ({ restBase }) => {
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">{post.title.rendered}</h3>
-                                <div className='read-more-button' onClick={() => {
-                                    navigate(`/projects/${post.id}`)
-                                }}>Read More</div>
+                                <Link className='read-more-button'
+                                    href={`/projects/${post.id}`}
+                                    underline="none"
+                                >Read More</Link>
                             </div>
-                        </section>
+                        </Link>
                     ))}
                 </div>
                 :
-                <Loading section={'projects'}/>
+                <Loading section={'projects'} />
             }
         </>
     )
