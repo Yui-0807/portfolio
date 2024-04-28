@@ -67,7 +67,6 @@ const Loading = ({ section }) => {
             );
         case "project-card":
             return (
-                <div className="loading">
                     <Box className="single-project-container">
                         <Box className="project-cards">
                             <Box className="project-card">
@@ -82,7 +81,6 @@ const Loading = ({ section }) => {
                             </Box>
                         </Box >
                     </Box>
-                </div>
             );
         case "projects":
             return (

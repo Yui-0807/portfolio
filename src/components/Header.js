@@ -4,11 +4,37 @@ import HomeIcon from '@mui/icons-material/Home';
 import AboutIcon from '@mui/icons-material/EmojiEmotions';
 import ProjectIcon from '@mui/icons-material/FolderCopy';
 import Link from '@mui/joy/Link';
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState } from 'react';
 
 const Header = () => {
 
+    const { scrollY } = useScroll();
+    const [hidden, setHidden] = useState(false);
+
+    useMotionValueEvent(scrollY, "change", (lastest) => {
+        const prev = scrollY.getPrevious();
+        if (lastest > prev && lastest > 150) {
+            setHidden(true)
+        } else {
+            setHidden(false)
+        }
+    })
+
     return (
-        <header className='header'>
+        <motion.header
+            variants={{
+                visible: { y: 0 },
+                hidden: { y: "-100%" },
+                transition: {
+                    duration: 0.35,
+                    ease: "easeInOut"
+                }
+
+            }}
+            animate={hidden ? "hidden" : "visible"}
+            // transition={{ duration: 0.35, ease: "easeInOut" }}
+            className='header'>
             <nav className='header-nav'>
                 <ul>
                     <li className="home-link">
@@ -45,7 +71,7 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
-        </header>
+        </motion.header>
     )
 }
 

@@ -88,12 +88,6 @@ button {
 
 }
 
-.header {
-    background-color: $surface-color;
-    color: $primary-color;
-    box-shadow: 0 6px 10px $secondary-light-gray-color;
-}
-
 .footer {
     background-color: $primary-color ;
     color: $primary-white-color ;
@@ -117,7 +111,6 @@ button {
 
     .header {
         grid-area: header;
-        padding: .5rem;
     }
 
     .sidebar-left {

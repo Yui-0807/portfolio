@@ -118,8 +118,8 @@ const About = ({ restBase }) => {
                             {restData.acf.other_things_i_enjoy.map((item) => (
                                 <ImageListItem key={item.gallery_image.id}>
                                     <img
-                                        srcSet={`${item.gallery_image.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                        src={`${item.gallery_image.url}?w=248&fit=crop&auto=format`}
+                                        srcSet={`${item.gallery_image.sizes.large}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                        src={`${item.gallery_image.sizes.large}?w=248&fit=crop&auto=format`}
                                         alt={item.gallery_image.alt}
                                         loading="lazy"
                                     />

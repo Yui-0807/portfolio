@@ -1,6 +1,6 @@
 @import '../default/variables.scss';
 
-.header {
+.header-nav {
     padding: 0 .5rem;
     margin: 1rem;
     border-radius: $large-button-border-radius;
@@ -9,6 +9,9 @@
     left: 0;
     right: 0;
     z-index: 10;
+    background-color: $surface-color;
+    color: $primary-color;
+    box-shadow: 0 6px 10px $secondary-light-gray-color;
     backdrop-filter: blur(3px);
     transition: all 0.3s ease-in-out;
     

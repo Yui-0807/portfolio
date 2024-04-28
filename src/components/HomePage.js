@@ -5,6 +5,7 @@ import homeBannerRightStairs from "../images/home-banner-right-stairs.svg";
 import homeBannerLeftStairs from "../images/home-banner-left-stairs.svg";
 import homeBannerwall from "../images/home-banner-wall.svg";
 import { motion, useScroll, useTransform } from "framer-motion";
+
 import Loading from "./Loading";
 
 
