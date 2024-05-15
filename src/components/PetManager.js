@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PetButton from './PetButton';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Accordion from 'react-bootstrap/Accordion';
-
 import catImage from "../images/cat.svg";
 import dogImage from "../images/dog.svg";
 import checkedCatImage from "../images/cat-checked.svg";
@@ -27,7 +26,6 @@ const steps = [
 
 const PetManager = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [isActive, setIsActive] = useState(true); // Whether the user is active on the site
   const [activeStep, setActiveStep] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [hunger, setHunger] = useState(10);

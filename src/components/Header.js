@@ -3,7 +3,7 @@ import PetManager from './PetManager';
 import HomeIcon from '@mui/icons-material/Home';
 import AboutIcon from '@mui/icons-material/EmojiEmotions';
 import ProjectIcon from '@mui/icons-material/FolderCopy';
-import Link from '@mui/joy/Link';
+import Link from '@mui/material/Link';
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from 'react';
 

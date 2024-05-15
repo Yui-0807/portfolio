@@ -1,7 +1,8 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import Link from '@mui/joy/Link';
+import Link from '@mui/material/Link';
+
 
 const Footer = () => {
     return (

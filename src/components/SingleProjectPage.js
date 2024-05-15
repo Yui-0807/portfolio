@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import ProjectCards from "./ProjectCards"
-import Link from '@mui/joy/Link';
+import Link from '@mui/material/Link';
 import Skeleton from '@mui/material/Skeleton';
 import Toolkits from "./singleProjectSection/Toolkits";
 import Overview from "./singleProjectSection/Overview";

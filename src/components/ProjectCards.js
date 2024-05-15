@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react"
 import Skeleton from '@mui/material/Skeleton';
 import Loading from "./Loading";
-import Link from '@mui/joy/Link';
+import Link from '@mui/material/Link';
 
 const fetchProjectImage = async (imageId) => {
     try {
@@ -70,8 +70,10 @@ const ProjectCards = ({ restBase, id }) => {
                                     project.acf.project_card_image !== "" && (
 
                                         <Link
+                                        key={project.id}
                                         className="project-card"
                                         href={`/projects/${project.id}`}
+                                        underline="none"
                                         >
                                             {projectImages[project.id] ?
                                                 <img
