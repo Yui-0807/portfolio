@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Skeleton from '@mui/material/Skeleton';
 import Loading from "./Loading";
 
+
 const Projects = ({ restBase }) => {
 
     const restPathPosts = restBase + 'posts?embed&acf_format=standard'
@@ -21,7 +22,7 @@ const Projects = ({ restBase }) => {
         }
         fetchData()
     }, [restPathPosts])
-
+    
 
     return (
         <>
@@ -29,13 +30,13 @@ const Projects = ({ restBase }) => {
                 <div className="projects">
                     <h2 id="projects">Works</h2>
                     {restDataPost.map((post, index) => (
+                        
                         <a
                             key={post.id}
                             href={`/projects/${post.id}`}
                             className={`project ${index % 2 === 0 ? '' : 'reverse-columns'}`}
                         >
                             <div class="image-container">
-
                                 {post.acf.screen_video ?
                                     <video
                                         src={post.acf.screen_video}
@@ -52,7 +53,6 @@ const Projects = ({ restBase }) => {
                                 </div>
                             </div>
                             <div className="project-info">
-                                <h3 className="project-title">{post.title.rendered}</h3>
                                 <div className='read-more-button'
                                     href={`/projects/${post.id}`}
                                 >Read More</div>
